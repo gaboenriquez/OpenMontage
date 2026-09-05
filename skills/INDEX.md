@@ -280,6 +280,20 @@ Stage director skills teach the agent HOW to execute each pipeline stage. Each s
 | Compose Director | `pipelines/localization-dub/compose-director.md` | `compose` | Per-locale rendering, subtitle-fit checks, output labeling |
 | Publish Director | `pipelines/localization-dub/publish-director.md` | `publish` | Locale packaging, metadata precision, QA-note retention |
 
+## Content Strategy Skills
+
+Channel-level skills that run around the pipeline (before `idea`/`script`, and after `publish`). Each lives in its own folder with a `SKILL.md` so Claude Code can invoke it by name. Four are adapted from [Pluviobyte/rnskill](https://github.com/Pluviobyte/rnskill) (CC BY-NC 4.0, credited in each file).
+
+| Skill | Path | When |
+|-------|------|------|
+| Shorts Hook Miner | `shorts-hook-miner/SKILL.md` | Research: mine top Shorts/TikToks of the last 90 days into reusable hook patterns, never verbatim |
+| Shorts Hook Selector | `shorts-hook-selector/SKILL.md` | Script: material check, choose hook type by precondition, diagnose an opening, generate 10-15 candidates + Top 3 |
+| Shorts Title Forge | `shorts-title-forge/SKILL.md` | Script lock and publish: theme line first, 8-12 two-part candidates under the channel template, title/thumbnail gap, kebab-case export names |
+| Script Humanizer | `script-humanizer/SKILL.md` | Script review: 22-pattern AI-flavor audit (ES/EN, spoken narration), rewrite only after intent is confirmed |
+| Post-Publish Review | `post-publish-review/SKILL.md` | After publish: grade against the channel median (R, M, retention), attribute drop-offs to lines and shots, deposit at least one asset into the knowledge base |
+
+Recommended chain for a new Short: `shorts-hook-miner` → `shorts-hook-selector` → `shorts-title-forge` → `script-humanizer` → pipeline → `post-publish-review` → next `shorts-hook-selector` (with `metadata.hook_type` correlation).
+
 ## Meta Skills
 
 Cross-cutting skills that apply to all pipelines:
