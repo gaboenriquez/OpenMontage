@@ -1,0 +1,890 @@
+[
+{
+"text": "Un",
+"startMs": 0,
+"endMs": 160,
+"scene": 1
+},
+{
+"text": "esclavo",
+"startMs": 160,
+"endMs": 620,
+"scene": 1
+},
+{
+"text": "romano",
+"startMs": 620,
+"endMs": 1180,
+"scene": 1
+},
+{
+"text": "te",
+"startMs": 1180,
+"endMs": 1460,
+"scene": 1
+},
+{
+"text": "va",
+"startMs": 1460,
+"endMs": 1620,
+"scene": 1
+},
+{
+"text": "a",
+"startMs": 1620,
+"endMs": 1660,
+"scene": 1
+},
+{
+"text": "enseñar",
+"startMs": 1660,
+"endMs": 2160,
+"scene": 1
+},
+{
+"text": "por",
+"startMs": 2160,
+"endMs": 2320,
+"scene": 1
+},
+{
+"text": "qué",
+"startMs": 2320,
+"endMs": 2560,
+"scene": 1
+},
+{
+"text": "sufres",
+"startMs": 2560,
+"endMs": 2980,
+"scene": 1
+},
+{
+"text": "más",
+"startMs": 2980,
+"endMs": 3240,
+"scene": 1
+},
+{
+"text": "de",
+"startMs": 3240,
+"endMs": 3400,
+"scene": 1
+},
+{
+"text": "lo",
+"startMs": 3400,
+"endMs": 3480,
+"scene": 1
+},
+{
+"text": "necesario.",
+"startMs": 3480,
+"endMs": 3860,
+"scene": 1
+},
+{
+"text": "Se",
+"startMs": 4860,
+"endMs": 5020,
+"scene": 2
+},
+{
+"text": "llamaba",
+"startMs": 5020,
+"endMs": 5500,
+"scene": 2
+},
+{
+"text": "Epicteto",
+"startMs": 5500,
+"endMs": 6260,
+"scene": 2
+},
+{
+"text": "y",
+"startMs": 6260,
+"endMs": 6900,
+"scene": 2
+},
+{
+"text": "descubrió",
+"startMs": 6900,
+"endMs": 7460,
+"scene": 2
+},
+{
+"text": "que",
+"startMs": 7460,
+"endMs": 7600,
+"scene": 2
+},
+{
+"text": "casi",
+"startMs": 7600,
+"endMs": 7940,
+"scene": 2
+},
+{
+"text": "todo",
+"startMs": 7940,
+"endMs": 8320,
+"scene": 2
+},
+{
+"text": "tu",
+"startMs": 8320,
+"endMs": 8620,
+"scene": 2
+},
+{
+"text": "dolor",
+"startMs": 8620,
+"endMs": 9000,
+"scene": 2
+},
+{
+"text": "viene",
+"startMs": 9000,
+"endMs": 9480,
+"scene": 2
+},
+{
+"text": "de",
+"startMs": 9480,
+"endMs": 9680,
+"scene": 2
+},
+{
+"text": "un",
+"startMs": 9680,
+"endMs": 9780,
+"scene": 2
+},
+{
+"text": "solo",
+"startMs": 9780,
+"endMs": 9980,
+"scene": 2
+},
+{
+"text": "error.",
+"startMs": 9980,
+"endMs": 10280,
+"scene": 2
+},
+{
+"text": "Tratar",
+"startMs": 10780,
+"endMs": 11260,
+"scene": 2
+},
+{
+"text": "como",
+"startMs": 11260,
+"endMs": 11480,
+"scene": 2
+},
+{
+"text": "tuyo",
+"startMs": 11480,
+"endMs": 11900,
+"scene": 2
+},
+{
+"text": "lo",
+"startMs": 11900,
+"endMs": 12000,
+"scene": 2
+},
+{
+"text": "que",
+"startMs": 12000,
+"endMs": 12120,
+"scene": 2
+},
+{
+"text": "no",
+"startMs": 12120,
+"endMs": 12240,
+"scene": 2
+},
+{
+"text": "lo",
+"startMs": 12240,
+"endMs": 12360,
+"scene": 2
+},
+{
+"text": "es.",
+"startMs": 12360,
+"endMs": 12620,
+"scene": 2
+},
+{
+"text": "Todo",
+"startMs": 13430,
+"endMs": 13650,
+"scene": 3
+},
+{
+"text": "se",
+"startMs": 13650,
+"endMs": 13890,
+"scene": 3
+},
+{
+"text": "divide",
+"startMs": 13890,
+"endMs": 14129,
+"scene": 3
+},
+{
+"text": "en",
+"startMs": 14129,
+"endMs": 14350,
+"scene": 3
+},
+{
+"text": "dos,",
+"startMs": 14350,
+"endMs": 14530,
+"scene": 3
+},
+{
+"text": "lo",
+"startMs": 14930,
+"endMs": 15129,
+"scene": 3
+},
+{
+"text": "que",
+"startMs": 15129,
+"endMs": 15250,
+"scene": 3
+},
+{
+"text": "depende",
+"startMs": 15250,
+"endMs": 15629,
+"scene": 3
+},
+{
+"text": "de",
+"startMs": 15629,
+"endMs": 15830,
+"scene": 3
+},
+{
+"text": "ti,",
+"startMs": 15830,
+"endMs": 16050,
+"scene": 3
+},
+{
+"text": "tu",
+"startMs": 16570,
+"endMs": 16790,
+"scene": 3
+},
+{
+"text": "esfuerzo,",
+"startMs": 16790,
+"endMs": 17470,
+"scene": 3
+},
+{
+"text": "tu",
+"startMs": 17790,
+"endMs": 17850,
+"scene": 3
+},
+{
+"text": "reacción",
+"startMs": 17850,
+"endMs": 18390,
+"scene": 3
+},
+{
+"text": "y",
+"startMs": 18390,
+"endMs": 19170,
+"scene": 3
+},
+{
+"text": "lo",
+"startMs": 19170,
+"endMs": 19310,
+"scene": 3
+},
+{
+"text": "que",
+"startMs": 19310,
+"endMs": 19450,
+"scene": 3
+},
+{
+"text": "no,",
+"startMs": 19450,
+"endMs": 19650,
+"scene": 3
+},
+{
+"text": "el",
+"startMs": 20009,
+"endMs": 20330,
+"scene": 3
+},
+{
+"text": "resultado,",
+"startMs": 20330,
+"endMs": 20890,
+"scene": 3
+},
+{
+"text": "la",
+"startMs": 21530,
+"endMs": 21650,
+"scene": 3
+},
+{
+"text": "opinión",
+"startMs": 21650,
+"endMs": 22170,
+"scene": 3
+},
+{
+"text": "ajena,",
+"startMs": 22170,
+"endMs": 22650,
+"scene": 3
+},
+{
+"text": "lo",
+"startMs": 23150,
+"endMs": 23290,
+"scene": 3
+},
+{
+"text": "que",
+"startMs": 23290,
+"endMs": 23430,
+"scene": 3
+},
+{
+"text": "ya",
+"startMs": 23430,
+"endMs": 23590,
+"scene": 3
+},
+{
+"text": "pasó.",
+"startMs": 23590,
+"endMs": 23850,
+"scene": 3
+},
+{
+"text": "Un",
+"startMs": 25040,
+"endMs": 25180,
+"scene": 4
+},
+{
+"text": "día",
+"startMs": 25180,
+"endMs": 25419,
+"scene": 4
+},
+{
+"text": "su",
+"startMs": 25419,
+"endMs": 25680,
+"scene": 4
+},
+{
+"text": "amo",
+"startMs": 25680,
+"endMs": 25820,
+"scene": 4
+},
+{
+"text": "le",
+"startMs": 25820,
+"endMs": 25960,
+"scene": 4
+},
+{
+"text": "estaba",
+"startMs": 25960,
+"endMs": 26240,
+"scene": 4
+},
+{
+"text": "torciendo",
+"startMs": 26240,
+"endMs": 26700,
+"scene": 4
+},
+{
+"text": "la",
+"startMs": 26700,
+"endMs": 26860,
+"scene": 4
+},
+{
+"text": "pierna",
+"startMs": 26860,
+"endMs": 27299,
+"scene": 4
+},
+{
+"text": "como",
+"startMs": 27299,
+"endMs": 27599,
+"scene": 4
+},
+{
+"text": "castigo.",
+"startMs": 27599,
+"endMs": 28099,
+"scene": 4
+},
+{
+"text": "Epicteto",
+"startMs": 28740,
+"endMs": 29299,
+"scene": 4
+},
+{
+"text": "le",
+"startMs": 29299,
+"endMs": 29439,
+"scene": 4
+},
+{
+"text": "dijo,",
+"startMs": 29439,
+"endMs": 29720,
+"scene": 4
+},
+{
+"text": "con",
+"startMs": 30220,
+"endMs": 30360,
+"scene": 4
+},
+{
+"text": "calma",
+"startMs": 30360,
+"endMs": 30759,
+"scene": 4
+},
+{
+"text": "total,",
+"startMs": 30759,
+"endMs": 31040,
+"scene": 4
+},
+{
+"text": "si",
+"startMs": 31720,
+"endMs": 31939,
+"scene": 4
+},
+{
+"text": "sigues,",
+"startMs": 31939,
+"endMs": 32540,
+"scene": 4
+},
+{
+"text": "me",
+"startMs": 32839,
+"endMs": 33019,
+"scene": 4
+},
+{
+"text": "la",
+"startMs": 33019,
+"endMs": 33120,
+"scene": 4
+},
+{
+"text": "vas",
+"startMs": 33120,
+"endMs": 33320,
+"scene": 4
+},
+{
+"text": "a",
+"startMs": 33320,
+"endMs": 33420,
+"scene": 4
+},
+{
+"text": "romper.",
+"startMs": 33420,
+"endMs": 33820,
+"scene": 4
+},
+{
+"text": "Su",
+"startMs": 34580,
+"endMs": 34720,
+"scene": 4
+},
+{
+"text": "amo",
+"startMs": 34720,
+"endMs": 34900,
+"scene": 4
+},
+{
+"text": "siguió",
+"startMs": 34900,
+"endMs": 35360,
+"scene": 4
+},
+{
+"text": "y",
+"startMs": 35360,
+"endMs": 35860,
+"scene": 4
+},
+{
+"text": "se",
+"startMs": 35860,
+"endMs": 35960,
+"scene": 4
+},
+{
+"text": "la",
+"startMs": 35960,
+"endMs": 36080,
+"scene": 4
+},
+{
+"text": "rompió.",
+"startMs": 36080,
+"endMs": 36460,
+"scene": 4
+},
+{
+"text": "Epicteto",
+"startMs": 37240,
+"endMs": 37820,
+"scene": 5
+},
+{
+"text": "no",
+"startMs": 37820,
+"endMs": 37960,
+"scene": 5
+},
+{
+"text": "gritó,",
+"startMs": 37960,
+"endMs": 38340,
+"scene": 5
+},
+{
+"text": "solo",
+"startMs": 38600,
+"endMs": 38940,
+"scene": 5
+},
+{
+"text": "dijo,",
+"startMs": 38940,
+"endMs": 39280,
+"scene": 5
+},
+{
+"text": "¿no",
+"startMs": 39760,
+"endMs": 40020,
+"scene": 5
+},
+{
+"text": "te",
+"startMs": 40020,
+"endMs": 40180,
+"scene": 5
+},
+{
+"text": "lo",
+"startMs": 40180,
+"endMs": 40300,
+"scene": 5
+},
+{
+"text": "dije?",
+"startMs": 40300,
+"endMs": 40560,
+"scene": 5
+},
+{
+"text": "Su",
+"startMs": 41260,
+"endMs": 41500,
+"scene": 5
+},
+{
+"text": "pierna",
+"startMs": 41500,
+"endMs": 42020,
+"scene": 5
+},
+{
+"text": "no",
+"startMs": 42020,
+"endMs": 42220,
+"scene": 5
+},
+{
+"text": "dependía",
+"startMs": 42220,
+"endMs": 42780,
+"scene": 5
+},
+{
+"text": "de",
+"startMs": 42780,
+"endMs": 42920,
+"scene": 5
+},
+{
+"text": "él.",
+"startMs": 42920,
+"endMs": 43160,
+"scene": 5
+},
+{
+"text": "Su",
+"startMs": 43580,
+"endMs": 43880,
+"scene": 5
+},
+{
+"text": "reacción,",
+"startMs": 43880,
+"endMs": 44460,
+"scene": 5
+},
+{
+"text": "sí.",
+"startMs": 44800,
+"endMs": 45120,
+"scene": 5
+},
+{
+"text": "Sostener",
+"startMs": 45950,
+"endMs": 46510,
+"scene": 6
+},
+{
+"text": "lo",
+"startMs": 46510,
+"endMs": 46630,
+"scene": 6
+},
+{
+"text": "que",
+"startMs": 46630,
+"endMs": 46770,
+"scene": 6
+},
+{
+"text": "no",
+"startMs": 46770,
+"endMs": 46950,
+"scene": 6
+},
+{
+"text": "es",
+"startMs": 46950,
+"endMs": 47090,
+"scene": 6
+},
+{
+"text": "tuyo",
+"startMs": 47090,
+"endMs": 47350,
+"scene": 6
+},
+{
+"text": "no",
+"startMs": 47350,
+"endMs": 47450,
+"scene": 6
+},
+{
+"text": "lo",
+"startMs": 47450,
+"endMs": 47550,
+"scene": 6
+},
+{
+"text": "cambia,",
+"startMs": 47550,
+"endMs": 47950,
+"scene": 6
+},
+{
+"text": "solo",
+"startMs": 48230,
+"endMs": 48730,
+"scene": 6
+},
+{
+"text": "te",
+"startMs": 48730,
+"endMs": 48930,
+"scene": 6
+},
+{
+"text": "agota",
+"startMs": 48930,
+"endMs": 49230,
+"scene": 6
+},
+{
+"text": "a",
+"startMs": 49230,
+"endMs": 49370,
+"scene": 6
+},
+{
+"text": "ti.",
+"startMs": 49370,
+"endMs": 49490,
+"scene": 6
+},
+{
+"text": "La",
+"startMs": 50300,
+"endMs": 50459,
+"scene": 7
+},
+{
+"text": "próxima",
+"startMs": 50459,
+"endMs": 50660,
+"scene": 7
+},
+{
+"text": "vez",
+"startMs": 50660,
+"endMs": 50940,
+"scene": 7
+},
+{
+"text": "que",
+"startMs": 50940,
+"endMs": 51120,
+"scene": 7
+},
+{
+"text": "algo",
+"startMs": 51120,
+"endMs": 51279,
+"scene": 7
+},
+{
+"text": "te",
+"startMs": 51279,
+"endMs": 51459,
+"scene": 7
+},
+{
+"text": "atormente,",
+"startMs": 51459,
+"endMs": 51980,
+"scene": 7
+},
+{
+"text": "pregúntate.",
+"startMs": 52339,
+"endMs": 52839,
+"scene": 7
+},
+{
+"text": "Esto",
+"startMs": 53379,
+"endMs": 53800,
+"scene": 7
+},
+{
+"text": "depende",
+"startMs": 53800,
+"endMs": 54180,
+"scene": 7
+},
+{
+"text": "de",
+"startMs": 54180,
+"endMs": 54400,
+"scene": 7
+},
+{
+"text": "mí.",
+"startMs": 54400,
+"endMs": 54580,
+"scene": 7
+},
+{
+"text": "Sígueme",
+"startMs": 55319,
+"endMs": 55800,
+"scene": 7
+},
+{
+"text": "si",
+"startMs": 55800,
+"endMs": 55940,
+"scene": 7
+},
+{
+"text": "quieres",
+"startMs": 55940,
+"endMs": 56180,
+"scene": 7
+},
+{
+"text": "una",
+"startMs": 56180,
+"endMs": 56400,
+"scene": 7
+},
+{
+"text": "idea",
+"startMs": 56400,
+"endMs": 56640,
+"scene": 7
+},
+{
+"text": "estoica",
+"startMs": 56640,
+"endMs": 57080,
+"scene": 7
+},
+{
+"text": "más",
+"startMs": 57080,
+"endMs": 57300,
+"scene": 7
+},
+{
+"text": "cada",
+"startMs": 57300,
+"endMs": 57500,
+"scene": 7
+},
+{
+"text": "semana.",
+"startMs": 57500,
+"endMs": 57780,
+"scene": 7
+}
+]

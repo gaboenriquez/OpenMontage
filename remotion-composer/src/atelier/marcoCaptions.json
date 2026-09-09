@@ -1,0 +1,1039 @@
+{
+ "cues": [
+  {
+   "text": "Marco Aurelio enterró a",
+   "start": 0.0,
+   "end": 1.94,
+   "shot": 0,
+   "words": [
+    {
+     "w": "Marco",
+     "s": 0.0,
+     "e": 0.66
+    },
+    {
+     "w": "Aurelio",
+     "s": 0.66,
+     "e": 1.14
+    },
+    {
+     "w": "enterró",
+     "s": 1.14,
+     "e": 1.78
+    },
+    {
+     "w": "a",
+     "s": 1.78,
+     "e": 1.94
+    }
+   ]
+  },
+  {
+   "text": "ocho de sus hijos",
+   "start": 1.94,
+   "end": 2.8,
+   "shot": 0,
+   "words": [
+    {
+     "w": "ocho",
+     "s": 1.94,
+     "e": 2.14
+    },
+    {
+     "w": "de",
+     "s": 2.14,
+     "e": 2.28
+    },
+    {
+     "w": "sus",
+     "s": 2.28,
+     "e": 2.52
+    },
+    {
+     "w": "hijos",
+     "s": 2.52,
+     "e": 2.8
+    }
+   ]
+  },
+  {
+   "text": "y siguió escribiendo cada",
+   "start": 2.8,
+   "end": 4.62,
+   "shot": 0,
+   "words": [
+    {
+     "w": "y",
+     "s": 2.8,
+     "e": 3.46
+    },
+    {
+     "w": "siguió",
+     "s": 3.46,
+     "e": 3.86
+    },
+    {
+     "w": "escribiendo",
+     "s": 3.86,
+     "e": 4.34
+    },
+    {
+     "w": "cada",
+     "s": 4.34,
+     "e": 4.62
+    }
+   ]
+  },
+  {
+   "text": "noche.",
+   "start": 4.62,
+   "end": 5.1,
+   "shot": 0,
+   "words": [
+    {
+     "w": "noche.",
+     "s": 4.62,
+     "e": 5.1
+    }
+   ]
+  },
+  {
+   "text": "Era el hombre más",
+   "start": 5.8,
+   "end": 6.58,
+   "shot": 1,
+   "words": [
+    {
+     "w": "Era",
+     "s": 5.8,
+     "e": 5.86
+    },
+    {
+     "w": "el",
+     "s": 5.86,
+     "e": 6.04
+    },
+    {
+     "w": "hombre",
+     "s": 6.04,
+     "e": 6.26
+    },
+    {
+     "w": "más",
+     "s": 6.26,
+     "e": 6.58
+    }
+   ]
+  },
+  {
+   "text": "poderoso del mundo conocido.",
+   "start": 6.58,
+   "end": 8.38,
+   "shot": 1,
+   "words": [
+    {
+     "w": "poderoso",
+     "s": 6.58,
+     "e": 7.04
+    },
+    {
+     "w": "del",
+     "s": 7.04,
+     "e": 7.22
+    },
+    {
+     "w": "mundo",
+     "s": 7.22,
+     "e": 7.58
+    },
+    {
+     "w": "conocido.",
+     "s": 7.58,
+     "e": 8.38
+    }
+   ]
+  },
+  {
+   "text": "Podía ordenar ejércitos.",
+   "start": 8.72,
+   "end": 10.24,
+   "shot": 1,
+   "words": [
+    {
+     "w": "Podía",
+     "s": 8.72,
+     "e": 8.88
+    },
+    {
+     "w": "ordenar",
+     "s": 8.88,
+     "e": 9.32
+    },
+    {
+     "w": "ejércitos.",
+     "s": 9.32,
+     "e": 9.98
+    }
+   ]
+  },
+  {
+   "text": "No pudo salvar a",
+   "start": 10.24,
+   "end": 11.22,
+   "shot": 1,
+   "words": [
+    {
+     "w": "No",
+     "s": 10.24,
+     "e": 10.4
+    },
+    {
+     "w": "pudo",
+     "s": 10.4,
+     "e": 10.64
+    },
+    {
+     "w": "salvar",
+     "s": 10.64,
+     "e": 10.98
+    },
+    {
+     "w": "a",
+     "s": 10.98,
+     "e": 11.22
+    }
+   ]
+  },
+  {
+   "text": "ninguno de ellos.",
+   "start": 11.22,
+   "end": 12.14,
+   "shot": 1,
+   "words": [
+    {
+     "w": "ninguno",
+     "s": 11.22,
+     "e": 11.52
+    },
+    {
+     "w": "de",
+     "s": 11.52,
+     "e": 11.76
+    },
+    {
+     "w": "ellos.",
+     "s": 11.76,
+     "e": 12.14
+    }
+   ]
+  },
+  {
+   "text": "Trece hijos tuvo.",
+   "start": 12.82,
+   "end": 13.74,
+   "shot": 2,
+   "words": [
+    {
+     "w": "Trece",
+     "s": 12.82,
+     "e": 13.1
+    },
+    {
+     "w": "hijos",
+     "s": 13.1,
+     "e": 13.36
+    },
+    {
+     "w": "tuvo.",
+     "s": 13.36,
+     "e": 13.74
+    }
+   ]
+  },
+  {
+   "text": "Ocho murieron antes que",
+   "start": 14.28,
+   "end": 15.48,
+   "shot": 2,
+   "words": [
+    {
+     "w": "Ocho",
+     "s": 14.28,
+     "e": 14.52
+    },
+    {
+     "w": "murieron",
+     "s": 14.52,
+     "e": 14.92
+    },
+    {
+     "w": "antes",
+     "s": 14.92,
+     "e": 15.24
+    },
+    {
+     "w": "que",
+     "s": 15.24,
+     "e": 15.48
+    }
+   ]
+  },
+  {
+   "text": "él.",
+   "start": 15.48,
+   "end": 16.16,
+   "shot": 2,
+   "words": [
+    {
+     "w": "él.",
+     "s": 15.48,
+     "e": 15.92
+    }
+   ]
+  },
+  {
+   "text": "Varios siendo bebés.",
+   "start": 16.16,
+   "end": 17.44,
+   "shot": 2,
+   "words": [
+    {
+     "w": "Varios",
+     "s": 16.16,
+     "e": 16.5
+    },
+    {
+     "w": "siendo",
+     "s": 16.5,
+     "e": 16.86
+    },
+    {
+     "w": "bebés.",
+     "s": 16.86,
+     "e": 17.44
+    }
+   ]
+  },
+  {
+   "text": "De ese dolor no",
+   "start": 18.06,
+   "end": 19.0,
+   "shot": 3,
+   "words": [
+    {
+     "w": "De",
+     "s": 18.06,
+     "e": 18.24
+    },
+    {
+     "w": "ese",
+     "s": 18.24,
+     "e": 18.42
+    },
+    {
+     "w": "dolor",
+     "s": 18.42,
+     "e": 18.7
+    },
+    {
+     "w": "no",
+     "s": 18.7,
+     "e": 19.0
+    }
+   ]
+  },
+  {
+   "text": "escribió una sola queja.",
+   "start": 19.0,
+   "end": 20.82,
+   "shot": 3,
+   "words": [
+    {
+     "w": "escribió",
+     "s": 19.0,
+     "e": 19.48
+    },
+    {
+     "w": "una",
+     "s": 19.48,
+     "e": 19.78
+    },
+    {
+     "w": "sola",
+     "s": 19.78,
+     "e": 20.04
+    },
+    {
+     "w": "queja.",
+     "s": 20.04,
+     "e": 20.82
+    }
+   ]
+  },
+  {
+   "text": "Ni una línea culpando",
+   "start": 21.14,
+   "end": 22.26,
+   "shot": 3,
+   "words": [
+    {
+     "w": "Ni",
+     "s": 21.14,
+     "e": 21.26
+    },
+    {
+     "w": "una",
+     "s": 21.26,
+     "e": 21.52
+    },
+    {
+     "w": "línea",
+     "s": 21.52,
+     "e": 21.74
+    },
+    {
+     "w": "culpando",
+     "s": 21.74,
+     "e": 22.26
+    }
+   ]
+  },
+  {
+   "text": "a los dioses.",
+   "start": 22.26,
+   "end": 23.58,
+   "shot": 3,
+   "words": [
+    {
+     "w": "a",
+     "s": 22.26,
+     "e": 22.44
+    },
+    {
+     "w": "los",
+     "s": 22.44,
+     "e": 22.56
+    },
+    {
+     "w": "dioses.",
+     "s": 22.56,
+     "e": 23.38
+    }
+   ]
+  },
+  {
+   "text": "Ni una pidiendo explicaciones.",
+   "start": 23.58,
+   "end": 25.34,
+   "shot": 3,
+   "words": [
+    {
+     "w": "Ni",
+     "s": 23.58,
+     "e": 23.72
+    },
+    {
+     "w": "una",
+     "s": 23.72,
+     "e": 23.92
+    },
+    {
+     "w": "pidiendo",
+     "s": 23.92,
+     "e": 24.4
+    },
+    {
+     "w": "explicaciones.",
+     "s": 24.4,
+     "e": 25.34
+    }
+   ]
+  },
+  {
+   "text": "Escribió esto.",
+   "start": 26.14,
+   "end": 26.86,
+   "shot": 4,
+   "words": [
+    {
+     "w": "Escribió",
+     "s": 26.14,
+     "e": 26.52
+    },
+    {
+     "w": "esto.",
+     "s": 26.52,
+     "e": 26.86
+    }
+   ]
+  },
+  {
+   "text": "No pidas que las",
+   "start": 26.86,
+   "end": 28.36,
+   "shot": 4,
+   "words": [
+    {
+     "w": "No",
+     "s": 26.86,
+     "e": 27.62
+    },
+    {
+     "w": "pidas",
+     "s": 27.62,
+     "e": 27.96
+    },
+    {
+     "w": "que",
+     "s": 27.96,
+     "e": 28.12
+    },
+    {
+     "w": "las",
+     "s": 28.12,
+     "e": 28.36
+    }
+   ]
+  },
+  {
+   "text": "cosas sean como quieres.",
+   "start": 28.36,
+   "end": 29.78,
+   "shot": 4,
+   "words": [
+    {
+     "w": "cosas",
+     "s": 28.36,
+     "e": 28.6
+    },
+    {
+     "w": "sean",
+     "s": 28.6,
+     "e": 28.88
+    },
+    {
+     "w": "como",
+     "s": 28.88,
+     "e": 29.16
+    },
+    {
+     "w": "quieres.",
+     "s": 29.16,
+     "e": 29.78
+    }
+   ]
+  },
+  {
+   "text": "Quiérelas como son.",
+   "start": 30.38,
+   "end": 31.3,
+   "shot": 4,
+   "words": [
+    {
+     "w": "Quiérelas",
+     "s": 30.38,
+     "e": 30.74
+    },
+    {
+     "w": "como",
+     "s": 30.74,
+     "e": 30.94
+    },
+    {
+     "w": "son.",
+     "s": 30.94,
+     "e": 31.3
+    }
+   ]
+  },
+  {
+   "text": "Y vivirás en paz.",
+   "start": 31.72,
+   "end": 32.74,
+   "shot": 4,
+   "words": [
+    {
+     "w": "Y",
+     "s": 31.72,
+     "e": 31.84
+    },
+    {
+     "w": "vivirás",
+     "s": 31.84,
+     "e": 32.24
+    },
+    {
+     "w": "en",
+     "s": 32.24,
+     "e": 32.44
+    },
+    {
+     "w": "paz.",
+     "s": 32.44,
+     "e": 32.74
+    }
+   ]
+  },
+  {
+   "text": "No lo escribió para",
+   "start": 33.72,
+   "end": 34.68,
+   "shot": 5,
+   "words": [
+    {
+     "w": "No",
+     "s": 33.72,
+     "e": 33.86
+    },
+    {
+     "w": "lo",
+     "s": 33.86,
+     "e": 34.14
+    },
+    {
+     "w": "escribió",
+     "s": 34.14,
+     "e": 34.44
+    },
+    {
+     "w": "para",
+     "s": 34.44,
+     "e": 34.68
+    }
+   ]
+  },
+  {
+   "text": "nosotros.",
+   "start": 34.68,
+   "end": 35.22,
+   "shot": 5,
+   "words": [
+    {
+     "w": "nosotros.",
+     "s": 34.68,
+     "e": 35.22
+    }
+   ]
+  },
+  {
+   "text": "Lo escribió para él.",
+   "start": 35.66,
+   "end": 36.82,
+   "shot": 5,
+   "words": [
+    {
+     "w": "Lo",
+     "s": 35.66,
+     "e": 35.84
+    },
+    {
+     "w": "escribió",
+     "s": 35.84,
+     "e": 36.24
+    },
+    {
+     "w": "para",
+     "s": 36.24,
+     "e": 36.46
+    },
+    {
+     "w": "él.",
+     "s": 36.46,
+     "e": 36.82
+    }
+   ]
+  },
+  {
+   "text": "De noche.",
+   "start": 37.18,
+   "end": 37.72,
+   "shot": 5,
+   "words": [
+    {
+     "w": "De",
+     "s": 37.18,
+     "e": 37.36
+    },
+    {
+     "w": "noche.",
+     "s": 37.36,
+     "e": 37.72
+    }
+   ]
+  },
+  {
+   "text": "En una tienda de",
+   "start": 38.1,
+   "end": 38.94,
+   "shot": 6,
+   "words": [
+    {
+     "w": "En",
+     "s": 38.1,
+     "e": 38.22
+    },
+    {
+     "w": "una",
+     "s": 38.22,
+     "e": 38.42
+    },
+    {
+     "w": "tienda",
+     "s": 38.42,
+     "e": 38.68
+    },
+    {
+     "w": "de",
+     "s": 38.68,
+     "e": 38.94
+    }
+   ]
+  },
+  {
+   "text": "campaña.",
+   "start": 38.94,
+   "end": 39.54,
+   "shot": 6,
+   "words": [
+    {
+     "w": "campaña.",
+     "s": 38.94,
+     "e": 39.54
+    }
+   ]
+  },
+  {
+   "text": "En medio de una",
+   "start": 39.86,
+   "end": 40.56,
+   "shot": 6,
+   "words": [
+    {
+     "w": "En",
+     "s": 39.86,
+     "e": 39.98
+    },
+    {
+     "w": "medio",
+     "s": 39.98,
+     "e": 40.16
+    },
+    {
+     "w": "de",
+     "s": 40.16,
+     "e": 40.38
+    },
+    {
+     "w": "una",
+     "s": 40.38,
+     "e": 40.56
+    }
+   ]
+  },
+  {
+   "text": "guerra.",
+   "start": 40.56,
+   "end": 40.96,
+   "shot": 6,
+   "words": [
+    {
+     "w": "guerra.",
+     "s": 40.56,
+     "e": 40.96
+    }
+   ]
+  },
+  {
+   "text": "Intentando convencerse.",
+   "start": 41.36,
+   "end": 42.7,
+   "shot": 6,
+   "words": [
+    {
+     "w": "Intentando",
+     "s": 41.36,
+     "e": 41.9
+    },
+    {
+     "w": "convencerse.",
+     "s": 41.9,
+     "e": 42.7
+    }
+   ]
+  },
+  {
+   "text": "Y ese cuaderno privado",
+   "start": 43.36,
+   "end": 44.98,
+   "shot": 7,
+   "words": [
+    {
+     "w": "Y",
+     "s": 43.36,
+     "e": 43.5
+    },
+    {
+     "w": "ese",
+     "s": 43.5,
+     "e": 43.68
+    },
+    {
+     "w": "cuaderno",
+     "s": 43.68,
+     "e": 44.18
+    },
+    {
+     "w": "privado",
+     "s": 44.18,
+     "e": 44.98
+    }
+   ]
+  },
+  {
+   "text": "estuvo a punto de",
+   "start": 44.98,
+   "end": 45.96,
+   "shot": 7,
+   "words": [
+    {
+     "w": "estuvo",
+     "s": 44.98,
+     "e": 45.36
+    },
+    {
+     "w": "a",
+     "s": 45.36,
+     "e": 45.48
+    },
+    {
+     "w": "punto",
+     "s": 45.48,
+     "e": 45.68
+    },
+    {
+     "w": "de",
+     "s": 45.68,
+     "e": 45.96
+    }
+   ]
+  },
+  {
+   "text": "perderse para siempre.",
+   "start": 45.96,
+   "end": 46.96,
+   "shot": 7,
+   "words": [
+    {
+     "w": "perderse",
+     "s": 45.96,
+     "e": 46.38
+    },
+    {
+     "w": "para",
+     "s": 46.38,
+     "e": 46.62
+    },
+    {
+     "w": "siempre.",
+     "s": 46.62,
+     "e": 46.96
+    }
+   ]
+  },
+  {
+   "text": "Te cuento cómo se",
+   "start": 47.64,
+   "end": 48.56,
+   "shot": 8,
+   "words": [
+    {
+     "w": "Te",
+     "s": 47.64,
+     "e": 47.8
+    },
+    {
+     "w": "cuento",
+     "s": 47.8,
+     "e": 48.08
+    },
+    {
+     "w": "cómo",
+     "s": 48.08,
+     "e": 48.28
+    },
+    {
+     "w": "se",
+     "s": 48.28,
+     "e": 48.56
+    }
+   ]
+  },
+  {
+   "text": "salvó en la parte",
+   "start": 48.56,
+   "end": 49.3,
+   "shot": 8,
+   "words": [
+    {
+     "w": "salvó",
+     "s": 48.56,
+     "e": 48.82
+    },
+    {
+     "w": "en",
+     "s": 48.82,
+     "e": 48.94
+    },
+    {
+     "w": "la",
+     "s": 48.94,
+     "e": 49.1
+    },
+    {
+     "w": "parte",
+     "s": 49.1,
+     "e": 49.3
+    }
+   ]
+  },
+  {
+   "text": "dos.",
+   "start": 49.3,
+   "end": 49.6,
+   "shot": 8,
+   "words": [
+    {
+     "w": "dos.",
+     "s": 49.3,
+     "e": 49.6
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  {
+   "shot": 0,
+   "text": "ENTERRÓ A\nOCHO HIJOS",
+   "start": 0.22,
+   "end": 3.2
+  },
+  {
+   "shot": 1,
+   "text": "PODÍA ORDENAR\nEJÉRCITOS",
+   "start": 5.67,
+   "end": 8.65
+  },
+  {
+   "shot": 2,
+   "text": "OCHO\nDE TRECE",
+   "start": 12.7,
+   "end": 15.68
+  },
+  {
+   "shot": 3,
+   "text": "NI UNA QUEJA",
+   "start": 17.97,
+   "end": 20.95
+  },
+  {
+   "shot": 4,
+   "text": "QUIÉRELAS\nCOMO SON",
+   "start": 25.96,
+   "end": 28.94
+  },
+  {
+   "shot": 5,
+   "text": "DE NOCHE,\nSOLO",
+   "start": 33.45,
+   "end": 36.43
+  },
+  {
+   "shot": 6,
+   "text": "INTENTANDO\nCONVENCERSE",
+   "start": 38.13,
+   "end": 41.11
+  },
+  {
+   "shot": 7,
+   "text": "CASI\nSE PIERDE",
+   "start": 43.25,
+   "end": 46.23
+  }
+ ],
+ "shots": [
+  {
+   "id": "m1",
+   "start": 0.0,
+   "end": 5.45,
+   "keyword": "ENTERRÓ A\nOCHO HIJOS",
+   "accent": false
+  },
+  {
+   "id": "m2",
+   "start": 5.45,
+   "end": 12.48,
+   "keyword": "PODÍA ORDENAR\nEJÉRCITOS",
+   "accent": false
+  },
+  {
+   "id": "m3",
+   "start": 12.48,
+   "end": 17.75,
+   "keyword": "OCHO\nDE TRECE",
+   "accent": true
+  },
+  {
+   "id": "m4",
+   "start": 17.75,
+   "end": 25.74,
+   "keyword": "NI UNA QUEJA",
+   "accent": false
+  },
+  {
+   "id": "m5",
+   "start": 25.74,
+   "end": 33.23,
+   "keyword": "QUIÉRELAS\nCOMO SON",
+   "accent": false
+  },
+  {
+   "id": "m6",
+   "start": 33.23,
+   "end": 37.91,
+   "keyword": "DE NOCHE,\nSOLO",
+   "accent": false
+  },
+  {
+   "id": "m7",
+   "start": 37.91,
+   "end": 43.03,
+   "keyword": "INTENTANDO\nCONVENCERSE",
+   "accent": false
+  },
+  {
+   "id": "m8",
+   "start": 43.03,
+   "end": 47.3,
+   "keyword": "CASI\nSE PIERDE",
+   "accent": false
+  },
+  {
+   "id": "m9",
+   "start": 47.3,
+   "end": 50.08,
+   "keyword": null,
+   "accent": false
+  }
+ ],
+ "layout": {
+  "canvas": [
+   1080,
+   1920
+  ],
+  "keyword_top": 420,
+  "keyword_h": 320,
+  "subtitle_top": 1340,
+  "subtitle_h": 200,
+  "safe_w": 800
+ }
+}

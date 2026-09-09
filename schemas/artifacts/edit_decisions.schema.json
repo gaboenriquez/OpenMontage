@@ -14,7 +14,35 @@
         "required": ["id", "source", "in_seconds", "out_seconds"],
         "properties": {
           "id": { "type": "string" },
-          "source": { "type": "string", "description": "Source file path or asset-manifest ID" },
+          "source": { "type": "string", "description": "Source file path or asset-manifest ID. Empty string for non-media cuts (text_card, stat_card, and other title-type Remotion scenes) per remotion-composer/SCENE_TYPES.md — the renderer falls back to its title-type dispatch when source is falsy." },
+          "type": { "type": "string", "description": "Remotion cut.type per remotion-composer/SCENE_TYPES.md (e.g. text_card, stat_card, callout, hero_title, terminal_scene). Omit/leave unset for a plain video/image cut." },
+          "text": { "type": "string", "description": "Text content for title-type cut.type values (text_card, hero_title, callout, ...) per remotion-composer/SCENE_TYPES.md." },
+          "stat": { "type": "string", "description": "cut.type=stat_card only. The headline stat/number/short phrase — Explainer.tsx's StatCard reads cut.stat, not cut.text." },
+          "subtitle": { "type": "string", "description": "cut.type=stat_card only (and any future cut sharing StatCard). Secondary line under cut.stat." },
+          "fontSize": { "type": "number", "minimum": 1, "description": "cut.type=text_card only. Overrides TextCard's default font size." },
+          "color": { "type": "string", "description": "Text color override, read by TextCard/StatCard when set; falls back to the active theme otherwise." },
+          "source_in_seconds": { "type": "number", "minimum": 0, "description": "Media seek/trim-in offset into the source file (Explainer.tsx OffthreadVideo startFrom). Distinct from in_seconds/out_seconds, which are timeline placement — verified against remotion-composer/src/Explainer.tsx." },
+          "steps": {
+            "type": "array",
+            "description": "cut.type=terminal_scene only. Timeline primitives consumed by TerminalScene (remotion-composer/src/components/TerminalScene.tsx) — see .agents/skills/synthetic-screen-recording/SKILL.md.",
+            "items": {
+              "type": "object",
+              "required": ["kind"],
+              "properties": {
+                "kind": { "type": "string", "enum": ["cmd", "out", "pause", "pill"] },
+                "text": { "type": "string" },
+                "typeSpeed": { "type": "number", "minimum": 0 },
+                "holdSeconds": { "type": "number", "minimum": 0 },
+                "seconds": { "type": "number", "minimum": 0, "description": "kind=pause only." },
+                "color": { "type": "string", "description": "kind=pill only." },
+                "durationSeconds": { "type": "number", "minimum": 0, "description": "kind=pill only." }
+              },
+              "additionalProperties": false
+            }
+          },
+          "terminalTitle": { "type": "string", "description": "cut.type=terminal_scene only. Window title bar text." },
+          "prompt": { "type": "string", "description": "cut.type=terminal_scene only. Shell prompt glyph, e.g. '$', '>'." },
+          "accentColor": { "type": "string", "description": "cut.type=terminal_scene only. Pill/prompt glow color." },
           "in_seconds": { "type": "number", "minimum": 0 },
           "out_seconds": { "type": "number", "minimum": 0 },
           "speed": { "type": "number", "minimum": 0.1, "default": 1.0 },
@@ -72,18 +100,30 @@
         "type": "object",
         "required": ["asset_id", "start_seconds", "end_seconds", "position"],
         "properties": {
-          "asset_id": { "type": "string" },
+          "asset_id": { "type": "string", "description": "Label/identifier for this overlay. For Remotion-rendered overlays, also set 'type' to a value from remotion-composer/SCENE_TYPES.md (overlay.type) — the renderer dispatches on 'type', not 'asset_id'." },
+          "type": { "type": "string", "description": "Remotion overlay.type per remotion-composer/SCENE_TYPES.md (section_title, stat_reveal, hero_title, provider_chip). Required for the overlay to actually render via Explainer." },
+          "text": { "type": "string", "description": "Primary overlay text (required by section_title/stat_reveal/hero_title)." },
+          "subtitle": { "type": "string" },
+          "accentColor": { "type": "string" },
           "start_seconds": { "type": "number", "minimum": 0 },
           "end_seconds": { "type": "number", "minimum": 0 },
+          "in_seconds": { "type": "number", "minimum": 0, "description": "Duplicate of start_seconds — remotion-composer/src/Explainer.tsx reads overlay.in_seconds/out_seconds, not start_seconds/end_seconds. Set both; start_seconds/end_seconds satisfy this schema's required fields, in_seconds/out_seconds are what the renderer actually consumes." },
+          "out_seconds": { "type": "number", "minimum": 0 },
           "position": {
-            "type": "object",
-            "properties": {
-              "x": { "type": "number" },
-              "y": { "type": "number" },
-              "width": { "type": "number" },
-              "height": { "type": "number" }
-            },
-            "required": ["x", "y"]
+            "description": "Remotion overlay components (section_title, stat_reveal) take a corner keyword (e.g. 'top-left', 'bottom-right'), not pixel coordinates. An {x,y,...} object is also accepted for non-Remotion/compositing paths.",
+            "oneOf": [
+              { "type": "string" },
+              {
+                "type": "object",
+                "properties": {
+                  "x": { "type": "number" },
+                  "y": { "type": "number" },
+                  "width": { "type": "number" },
+                  "height": { "type": "number" }
+                },
+                "required": ["x", "y"]
+              }
+            ]
           },
           "animation": { "type": "string" },
           "opacity": { "type": "number", "minimum": 0, "maximum": 1 }
@@ -97,7 +137,10 @@
       "properties": {
         "narration": {
           "type": "object",
+          "description": "src/volume are what remotion-composer/src/Explainer.tsx actually reads (props.audio.narration.src, an AudioLayer) to mux narration into a Remotion render — a SINGLE pre-mixed audio file, not per-segment. 'segments' models per-clip provenance/timing for editorial/planning purposes and for FFmpeg-only compose paths; it is NOT read by Explainer.tsx. When render_runtime=remotion, always set 'src' to a pre-mixed track (e.g. via audio_mixer or ffmpeg concat) covering the full timeline, in addition to 'segments' if you want that provenance recorded.",
           "properties": {
+            "src": { "type": "string", "description": "Path to the single pre-mixed narration audio file spanning the full timeline. Required for render_runtime=remotion narration playback." },
+            "volume": { "type": "number", "minimum": 0, "description": "Playback volume multiplier, default 1.0." },
             "segments": {
               "type": "array",
               "items": {
@@ -155,6 +198,7 @@
     },
     "subtitles": {
       "type": "object",
+      "description": "SRT/ASS-file-oriented subtitle config for the FFmpeg burn_subtitles path (video_compose _compose/_burn_subtitles). NOT read by the Remotion path — remotion-composer/src/Explainer.tsx only reads the root-level 'captions' array (word-level, in-memory) via its CaptionOverlay component. When render_runtime=remotion, set BOTH: 'subtitles' for provenance/export/FFmpeg fallback, and 'captions' for the actual burn-in.",
       "properties": {
         "enabled": { "type": "boolean" },
         "style": { "type": "string", "description": "Display style: sentence, word-by-word, karaoke" },
@@ -168,6 +212,20 @@
         "max_words_per_line": { "type": "integer", "minimum": 1 }
       },
       "additionalProperties": false
+    },
+    "captions": {
+      "type": "array",
+      "description": "Word-level captions actually burned in by the Remotion path (remotion-composer/src/components/CaptionOverlay.tsx WordCaption[], consumed via Explainer's top-level `captions` prop). Absolute video-time in milliseconds, not scene-relative.",
+      "items": {
+        "type": "object",
+        "required": ["word", "startMs", "endMs"],
+        "properties": {
+          "word": { "type": "string" },
+          "startMs": { "type": "number", "minimum": 0 },
+          "endMs": { "type": "number", "minimum": 0 }
+        },
+        "additionalProperties": false
+      }
     },
     "music": {
       "type": "object",

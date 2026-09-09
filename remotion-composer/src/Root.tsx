@@ -16,6 +16,13 @@ import { ProductReveal, ProductRevealProps } from "./components/ProductReveal";
 import { CaptionOverlay, WordCaption } from "./components/CaptionOverlay";
 import { CollageBurst, CollageBurstProps } from "./CollageBurst";
 import { LyricOverlay, LyricOverlayProps } from "./LyricOverlay";
+import { Estoicismo, TOTAL_FRAMES as ESTOICISMO_FRAMES } from "./atelier/Estoicismo";
+import { EstoicismoThumb, ThumbProps } from "./atelier/EstoicismoThumb";
+import { Seneca, TOTAL_FRAMES as SENECA_FRAMES } from "./atelier/Seneca";
+import { SenecaPaulina, TOTAL_FRAMES as SENECA_PAULINA_FRAMES } from "./atelier/SenecaPaulina";
+import { SenecaThumb, SenecaThumbProps } from "./atelier/SenecaThumb";
+import { Marco, TOTAL_FRAMES as MARCO_FRAMES } from "./atelier/Marco";
+import { MarcoThumb, MarcoThumbProps } from "./atelier/MarcoThumb";
 
 // ---------------------------------------------------------------------------
 // Theme System — prevents every video from looking like dark fintech
@@ -330,6 +337,72 @@ export const Root: React.FC = () => {
           overlay: true,
         } as EndTagProps}
       />
+      <Composition
+        id="Estoicismo"
+        component={Estoicismo}
+        durationInFrames={ESTOICISMO_FRAMES}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      <Composition
+        id="Seneca"
+        component={Seneca}
+        durationInFrames={SENECA_FRAMES}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      <Composition
+        id="SenecaPaulina"
+        component={SenecaPaulina}
+        durationInFrames={SENECA_PAULINA_FRAMES}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      <Composition
+        id="Marco"
+        component={Marco}
+        durationInFrames={MARCO_FRAMES}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      <Composition
+        id="MarcoThumb"
+        component={MarcoThumb}
+        durationInFrames={1}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ variant: "a" } as MarcoThumbProps}
+      />
+
+      <Composition
+        id="SenecaThumb"
+        component={SenecaThumb}
+        durationInFrames={1}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ variant: "a" } as SenecaThumbProps}
+      />
+
+      <Composition
+        id="EstoicismoThumb"
+        component={EstoicismoThumb}
+        durationInFrames={1}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ variant: "a" } as ThumbProps}
+      />
+
     </>
   );
 };

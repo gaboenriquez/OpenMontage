@@ -1,0 +1,1185 @@
+{
+ "cues": [
+  {
+   "text": "Nerón le envió una",
+   "start": 0.0,
+   "end": 1.34,
+   "scene": 0,
+   "words": [
+    {
+     "w": "Nerón",
+     "s": 0.0,
+     "e": 0.62
+    },
+    {
+     "w": "le",
+     "s": 0.62,
+     "e": 0.84
+    },
+    {
+     "w": "envió",
+     "s": 0.84,
+     "e": 1.08
+    },
+    {
+     "w": "una",
+     "s": 1.08,
+     "e": 1.34
+    }
+   ]
+  },
+  {
+   "text": "orden a su propio",
+   "start": 1.34,
+   "end": 2.26,
+   "scene": 0,
+   "words": [
+    {
+     "w": "orden",
+     "s": 1.34,
+     "e": 1.62
+    },
+    {
+     "w": "a",
+     "s": 1.62,
+     "e": 1.82
+    },
+    {
+     "w": "su",
+     "s": 1.82,
+     "e": 1.96
+    },
+    {
+     "w": "propio",
+     "s": 1.96,
+     "e": 2.26
+    }
+   ]
+  },
+  {
+   "text": "maestro.",
+   "start": 2.26,
+   "end": 2.9,
+   "scene": 0,
+   "words": [
+    {
+     "w": "maestro.",
+     "s": 2.26,
+     "e": 2.9
+    }
+   ]
+  },
+  {
+   "text": "Muérete.",
+   "start": 3.18,
+   "end": 3.64,
+   "scene": 0,
+   "words": [
+    {
+     "w": "Muérete.",
+     "s": 3.18,
+     "e": 3.64
+    }
+   ]
+  },
+  {
+   "text": "Séneca no suplicó.",
+   "start": 4.24,
+   "end": 5.62,
+   "scene": 0,
+   "words": [
+    {
+     "w": "Séneca",
+     "s": 4.24,
+     "e": 4.56
+    },
+    {
+     "w": "no",
+     "s": 4.56,
+     "e": 4.78
+    },
+    {
+     "w": "suplicó.",
+     "s": 4.78,
+     "e": 5.62
+    }
+   ]
+  },
+  {
+   "text": "Era uno de los",
+   "start": 5.94,
+   "end": 6.64,
+   "scene": 1,
+   "words": [
+    {
+     "w": "Era",
+     "s": 5.94,
+     "e": 6.08
+    },
+    {
+     "w": "uno",
+     "s": 6.08,
+     "e": 6.34
+    },
+    {
+     "w": "de",
+     "s": 6.34,
+     "e": 6.48
+    },
+    {
+     "w": "los",
+     "s": 6.48,
+     "e": 6.64
+    }
+   ]
+  },
+  {
+   "text": "hombres más poderosos de",
+   "start": 6.64,
+   "end": 7.98,
+   "scene": 1,
+   "words": [
+    {
+     "w": "hombres",
+     "s": 6.64,
+     "e": 6.92
+    },
+    {
+     "w": "más",
+     "s": 6.92,
+     "e": 7.24
+    },
+    {
+     "w": "poderosos",
+     "s": 7.24,
+     "e": 7.74
+    },
+    {
+     "w": "de",
+     "s": 7.74,
+     "e": 7.98
+    }
+   ]
+  },
+  {
+   "text": "Roma.",
+   "start": 7.98,
+   "end": 8.24,
+   "scene": 1,
+   "words": [
+    {
+     "w": "Roma.",
+     "s": 7.98,
+     "e": 8.24
+    }
+   ]
+  },
+  {
+   "text": "Y en un instante,",
+   "start": 8.84,
+   "end": 10.0,
+   "scene": 1,
+   "words": [
+    {
+     "w": "Y",
+     "s": 8.84,
+     "e": 8.94
+    },
+    {
+     "w": "en",
+     "s": 8.94,
+     "e": 9.06
+    },
+    {
+     "w": "un",
+     "s": 9.06,
+     "e": 9.34
+    },
+    {
+     "w": "instante,",
+     "s": 9.34,
+     "e": 10.0
+    }
+   ]
+  },
+  {
+   "text": "esa orden se convirtió",
+   "start": 10.34,
+   "end": 11.54,
+   "scene": 1,
+   "words": [
+    {
+     "w": "esa",
+     "s": 10.34,
+     "e": 10.48
+    },
+    {
+     "w": "orden",
+     "s": 10.48,
+     "e": 10.82
+    },
+    {
+     "w": "se",
+     "s": 10.82,
+     "e": 11.12
+    },
+    {
+     "w": "convirtió",
+     "s": 11.12,
+     "e": 11.54
+    }
+   ]
+  },
+  {
+   "text": "en su sentencia de",
+   "start": 11.54,
+   "end": 12.58,
+   "scene": 1,
+   "words": [
+    {
+     "w": "en",
+     "s": 11.54,
+     "e": 11.7
+    },
+    {
+     "w": "su",
+     "s": 11.7,
+     "e": 11.84
+    },
+    {
+     "w": "sentencia",
+     "s": 11.84,
+     "e": 12.38
+    },
+    {
+     "w": "de",
+     "s": 12.38,
+     "e": 12.58
+    }
+   ]
+  },
+  {
+   "text": "muerte.",
+   "start": 12.58,
+   "end": 12.9,
+   "scene": 1,
+   "words": [
+    {
+     "w": "muerte.",
+     "s": 12.58,
+     "e": 12.9
+    }
+   ]
+  },
+  {
+   "text": "Sus amigos lloraban a",
+   "start": 13.66,
+   "end": 14.88,
+   "scene": 2,
+   "words": [
+    {
+     "w": "Sus",
+     "s": 13.66,
+     "e": 13.86
+    },
+    {
+     "w": "amigos",
+     "s": 13.86,
+     "e": 14.22
+    },
+    {
+     "w": "lloraban",
+     "s": 14.22,
+     "e": 14.74
+    },
+    {
+     "w": "a",
+     "s": 14.74,
+     "e": 14.88
+    }
+   ]
+  },
+  {
+   "text": "su alrededor.",
+   "start": 14.88,
+   "end": 15.46,
+   "scene": 2,
+   "words": [
+    {
+     "w": "su",
+     "s": 14.88,
+     "e": 15.02
+    },
+    {
+     "w": "alrededor.",
+     "s": 15.02,
+     "e": 15.46
+    }
+   ]
+  },
+  {
+   "text": "Él los miró y",
+   "start": 16.12,
+   "end": 16.94,
+   "scene": 2,
+   "words": [
+    {
+     "w": "Él",
+     "s": 16.12,
+     "e": 16.28
+    },
+    {
+     "w": "los",
+     "s": 16.28,
+     "e": 16.58
+    },
+    {
+     "w": "miró",
+     "s": 16.58,
+     "e": 16.82
+    },
+    {
+     "w": "y",
+     "s": 16.82,
+     "e": 16.94
+    }
+   ]
+  },
+  {
+   "text": "dijo,",
+   "start": 16.94,
+   "end": 17.28,
+   "scene": 2,
+   "words": [
+    {
+     "w": "dijo,",
+     "s": 16.94,
+     "e": 17.28
+    }
+   ]
+  },
+  {
+   "text": "guarden mi ejemplo,",
+   "start": 17.88,
+   "end": 18.86,
+   "scene": 2,
+   "words": [
+    {
+     "w": "guarden",
+     "s": 17.88,
+     "e": 18.22
+    },
+    {
+     "w": "mi",
+     "s": 18.22,
+     "e": 18.4
+    },
+    {
+     "w": "ejemplo,",
+     "s": 18.4,
+     "e": 18.86
+    }
+   ]
+  },
+  {
+   "text": "no mis lágrimas.",
+   "start": 19.22,
+   "end": 20.12,
+   "scene": 2,
+   "words": [
+    {
+     "w": "no",
+     "s": 19.22,
+     "e": 19.38
+    },
+    {
+     "w": "mis",
+     "s": 19.38,
+     "e": 19.56
+    },
+    {
+     "w": "lágrimas.",
+     "s": 19.56,
+     "e": 20.12
+    }
+   ]
+  },
+  {
+   "text": "Se abrió las venas.",
+   "start": 20.98,
+   "end": 22.24,
+   "scene": 3,
+   "words": [
+    {
+     "w": "Se",
+     "s": 20.98,
+     "e": 21.22
+    },
+    {
+     "w": "abrió",
+     "s": 21.22,
+     "e": 21.46
+    },
+    {
+     "w": "las",
+     "s": 21.46,
+     "e": 21.7
+    },
+    {
+     "w": "venas.",
+     "s": 21.7,
+     "e": 22.24
+    }
+   ]
+  },
+  {
+   "text": "La sangre no salía",
+   "start": 22.62,
+   "end": 23.66,
+   "scene": 3,
+   "words": [
+    {
+     "w": "La",
+     "s": 22.62,
+     "e": 22.82
+    },
+    {
+     "w": "sangre",
+     "s": 22.82,
+     "e": 23.1
+    },
+    {
+     "w": "no",
+     "s": 23.1,
+     "e": 23.38
+    },
+    {
+     "w": "salía",
+     "s": 23.38,
+     "e": 23.66
+    }
+   ]
+  },
+  {
+   "text": "rápido.",
+   "start": 23.66,
+   "end": 24.08,
+   "scene": 3,
+   "words": [
+    {
+     "w": "rápido.",
+     "s": 23.66,
+     "e": 24.08
+    }
+   ]
+  },
+  {
+   "text": "Su cuerpo, viejo y",
+   "start": 24.62,
+   "end": 25.86,
+   "scene": 3,
+   "words": [
+    {
+     "w": "Su",
+     "s": 24.62,
+     "e": 24.8
+    },
+    {
+     "w": "cuerpo,",
+     "s": 24.8,
+     "e": 25.26
+    },
+    {
+     "w": "viejo",
+     "s": 25.46,
+     "e": 25.72
+    },
+    {
+     "w": "y",
+     "s": 25.72,
+     "e": 25.86
+    }
+   ]
+  },
+  {
+   "text": "delgado, tardaba en morir.",
+   "start": 25.86,
+   "end": 27.96,
+   "scene": 3,
+   "words": [
+    {
+     "w": "delgado,",
+     "s": 25.86,
+     "e": 26.34
+    },
+    {
+     "w": "tardaba",
+     "s": 26.64,
+     "e": 26.9
+    },
+    {
+     "w": "en",
+     "s": 26.9,
+     "e": 27.02
+    },
+    {
+     "w": "morir.",
+     "s": 27.02,
+     "e": 27.88
+    }
+   ]
+  },
+  {
+   "text": "Pidió veneno.",
+   "start": 28.08,
+   "end": 28.82,
+   "scene": 4,
+   "words": [
+    {
+     "w": "Pidió",
+     "s": 28.08,
+     "e": 28.34
+    },
+    {
+     "w": "veneno.",
+     "s": 28.34,
+     "e": 28.82
+    }
+   ]
+  },
+  {
+   "text": "Tampoco funcionó a tiempo.",
+   "start": 28.82,
+   "end": 30.68,
+   "scene": 4,
+   "words": [
+    {
+     "w": "Tampoco",
+     "s": 28.82,
+     "e": 29.74
+    },
+    {
+     "w": "funcionó",
+     "s": 29.74,
+     "e": 30.22
+    },
+    {
+     "w": "a",
+     "s": 30.22,
+     "e": 30.36
+    },
+    {
+     "w": "tiempo.",
+     "s": 30.36,
+     "e": 30.68
+    }
+   ]
+  },
+  {
+   "text": "Lo metieron en un",
+   "start": 31.18,
+   "end": 32.04,
+   "scene": 4,
+   "words": [
+    {
+     "w": "Lo",
+     "s": 31.18,
+     "e": 31.36
+    },
+    {
+     "w": "metieron",
+     "s": 31.36,
+     "e": 31.7
+    },
+    {
+     "w": "en",
+     "s": 31.7,
+     "e": 31.88
+    },
+    {
+     "w": "un",
+     "s": 31.88,
+     "e": 32.04
+    }
+   ]
+  },
+  {
+   "text": "baño caliente para acelerarlo.",
+   "start": 32.04,
+   "end": 33.58,
+   "scene": 4,
+   "words": [
+    {
+     "w": "baño",
+     "s": 32.04,
+     "e": 32.24
+    },
+    {
+     "w": "caliente",
+     "s": 32.24,
+     "e": 32.68
+    },
+    {
+     "w": "para",
+     "s": 32.68,
+     "e": 32.98
+    },
+    {
+     "w": "acelerarlo.",
+     "s": 32.98,
+     "e": 33.6
+    }
+   ]
+  },
+  {
+   "text": "Y aún así,",
+   "start": 34.26,
+   "end": 35.06,
+   "scene": 5,
+   "words": [
+    {
+     "w": "Y",
+     "s": 34.26,
+     "e": 34.4
+    },
+    {
+     "w": "aún",
+     "s": 34.4,
+     "e": 34.6
+    },
+    {
+     "w": "así,",
+     "s": 34.6,
+     "e": 35.06
+    }
+   ]
+  },
+  {
+   "text": "siguió hablando con calma,",
+   "start": 35.42,
+   "end": 36.94,
+   "scene": 5,
+   "words": [
+    {
+     "w": "siguió",
+     "s": 35.42,
+     "e": 35.62
+    },
+    {
+     "w": "hablando",
+     "s": 35.62,
+     "e": 35.88
+    },
+    {
+     "w": "con",
+     "s": 35.88,
+     "e": 36.2
+    },
+    {
+     "w": "calma,",
+     "s": 36.2,
+     "e": 36.68
+    }
+   ]
+  },
+  {
+   "text": "dictando sus últimas palabras.",
+   "start": 36.94,
+   "end": 38.42,
+   "scene": 5,
+   "words": [
+    {
+     "w": "dictando",
+     "s": 36.94,
+     "e": 37.34
+    },
+    {
+     "w": "sus",
+     "s": 37.34,
+     "e": 37.52
+    },
+    {
+     "w": "últimas",
+     "s": 37.52,
+     "e": 37.98
+    },
+    {
+     "w": "palabras.",
+     "s": 37.98,
+     "e": 38.42
+    }
+   ]
+  },
+  {
+   "text": "No se aferró a",
+   "start": 39.5,
+   "end": 40.42,
+   "scene": 6,
+   "words": [
+    {
+     "w": "No",
+     "s": 39.5,
+     "e": 39.7
+    },
+    {
+     "w": "se",
+     "s": 39.7,
+     "e": 39.94
+    },
+    {
+     "w": "aferró",
+     "s": 39.94,
+     "e": 40.26
+    },
+    {
+     "w": "a",
+     "s": 40.26,
+     "e": 40.42
+    }
+   ]
+  },
+  {
+   "text": "la vida que le",
+   "start": 40.42,
+   "end": 41.1,
+   "scene": 6,
+   "words": [
+    {
+     "w": "la",
+     "s": 40.42,
+     "e": 40.58
+    },
+    {
+     "w": "vida",
+     "s": 40.58,
+     "e": 40.76
+    },
+    {
+     "w": "que",
+     "s": 40.76,
+     "e": 40.92
+    },
+    {
+     "w": "le",
+     "s": 40.92,
+     "e": 41.1
+    }
+   ]
+  },
+  {
+   "text": "quitaban.",
+   "start": 41.1,
+   "end": 41.54,
+   "scene": 6,
+   "words": [
+    {
+     "w": "quitaban.",
+     "s": 41.1,
+     "e": 41.54
+    }
+   ]
+  },
+  {
+   "text": "Se aferró a la",
+   "start": 42.0,
+   "end": 42.88,
+   "scene": 6,
+   "words": [
+    {
+     "w": "Se",
+     "s": 42.0,
+     "e": 42.2
+    },
+    {
+     "w": "aferró",
+     "s": 42.2,
+     "e": 42.58
+    },
+    {
+     "w": "a",
+     "s": 42.58,
+     "e": 42.74
+    },
+    {
+     "w": "la",
+     "s": 42.74,
+     "e": 42.88
+    }
+   ]
+  },
+  {
+   "text": "que había vivido bien.",
+   "start": 42.88,
+   "end": 43.96,
+   "scene": 6,
+   "words": [
+    {
+     "w": "que",
+     "s": 42.88,
+     "e": 43.0
+    },
+    {
+     "w": "había",
+     "s": 43.0,
+     "e": 43.26
+    },
+    {
+     "w": "vivido",
+     "s": 43.26,
+     "e": 43.72
+    },
+    {
+     "w": "bien.",
+     "s": 43.72,
+     "e": 43.96
+    }
+   ]
+  },
+  {
+   "text": "Pero minutos antes de",
+   "start": 44.78,
+   "end": 45.92,
+   "scene": 7,
+   "words": [
+    {
+     "w": "Pero",
+     "s": 44.78,
+     "e": 45.02
+    },
+    {
+     "w": "minutos",
+     "s": 45.02,
+     "e": 45.4
+    },
+    {
+     "w": "antes",
+     "s": 45.4,
+     "e": 45.78
+    },
+    {
+     "w": "de",
+     "s": 45.78,
+     "e": 45.92
+    }
+   ]
+  },
+  {
+   "text": "morir, dijo algo que",
+   "start": 45.92,
+   "end": 47.28,
+   "scene": 7,
+   "words": [
+    {
+     "w": "morir,",
+     "s": 45.92,
+     "e": 46.5
+    },
+    {
+     "w": "dijo",
+     "s": 46.68,
+     "e": 46.8
+    },
+    {
+     "w": "algo",
+     "s": 46.8,
+     "e": 47.06
+    },
+    {
+     "w": "que",
+     "s": 47.06,
+     "e": 47.28
+    }
+   ]
+  },
+  {
+   "text": "casi nadie conoce.",
+   "start": 47.28,
+   "end": 48.94,
+   "scene": 7,
+   "words": [
+    {
+     "w": "casi",
+     "s": 47.28,
+     "e": 47.58
+    },
+    {
+     "w": "nadie",
+     "s": 47.58,
+     "e": 47.84
+    },
+    {
+     "w": "conoce.",
+     "s": 47.84,
+     "e": 48.68
+    }
+   ]
+  },
+  {
+   "text": "Sobre perder algo",
+   "start": 48.94,
+   "end": 49.58,
+   "scene": 7,
+   "words": [
+    {
+     "w": "Sobre",
+     "s": 48.94,
+     "e": 49.26
+    },
+    {
+     "w": "perder",
+     "s": 49.26,
+     "e": 49.58
+    },
+    {
+     "w": "algo",
+     "s": 49.58,
+     "e": 49.86
+    }
+   ]
+  },
+  {
+   "text": "mucho más difícil de",
+   "start": 49.86,
+   "end": 51.04,
+   "scene": 8,
+   "words": [
+    {
+     "w": "mucho",
+     "s": 49.86,
+     "e": 50.16
+    },
+    {
+     "w": "más",
+     "s": 50.16,
+     "e": 50.4
+    },
+    {
+     "w": "difícil",
+     "s": 50.4,
+     "e": 50.78
+    },
+    {
+     "w": "de",
+     "s": 50.78,
+     "e": 51.04
+    }
+   ]
+  },
+  {
+   "text": "soltar que la propia",
+   "start": 51.04,
+   "end": 52.3,
+   "scene": 8,
+   "words": [
+    {
+     "w": "soltar",
+     "s": 51.04,
+     "e": 51.5
+    },
+    {
+     "w": "que",
+     "s": 51.5,
+     "e": 51.86
+    },
+    {
+     "w": "la",
+     "s": 51.86,
+     "e": 52.06
+    },
+    {
+     "w": "propia",
+     "s": 52.06,
+     "e": 52.3
+    }
+   ]
+  },
+  {
+   "text": "vida.",
+   "start": 52.3,
+   "end": 52.62,
+   "scene": 8,
+   "words": [
+    {
+     "w": "vida.",
+     "s": 52.3,
+     "e": 52.62
+    }
+   ]
+  },
+  {
+   "text": "Te lo cuento en",
+   "start": 53.1,
+   "end": 53.8,
+   "scene": 8,
+   "words": [
+    {
+     "w": "Te",
+     "s": 53.1,
+     "e": 53.22
+    },
+    {
+     "w": "lo",
+     "s": 53.22,
+     "e": 53.4
+    },
+    {
+     "w": "cuento",
+     "s": 53.4,
+     "e": 53.66
+    },
+    {
+     "w": "en",
+     "s": 53.66,
+     "e": 53.8
+    }
+   ]
+  },
+  {
+   "text": "la parte dos.",
+   "start": 53.8,
+   "end": 54.48,
+   "scene": 8,
+   "words": [
+    {
+     "w": "la",
+     "s": 53.8,
+     "e": 53.96
+    },
+    {
+     "w": "parte",
+     "s": 53.96,
+     "e": 54.16
+    },
+    {
+     "w": "dos.",
+     "s": 54.16,
+     "e": 54.48
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  {
+   "scene": 0,
+   "text": "MUÉRETE, LE ORDENÓ",
+   "start": 0.25,
+   "end": 2.6
+  },
+  {
+   "scene": 1,
+   "text": "SENTENCIA DE MUERTE",
+   "start": 6.03,
+   "end": 8.38
+  },
+  {
+   "scene": 2,
+   "text": "GUARDEN MI EJEMPLO",
+   "start": 13.53,
+   "end": 15.88
+  },
+  {
+   "scene": 3,
+   "text": "TARDABA EN MORIR",
+   "start": 20.8,
+   "end": 23.15
+  },
+  {
+   "scene": 4,
+   "text": "NI EL VENENO",
+   "start": 28.23,
+   "end": 30.58
+  },
+  {
+   "scene": 5,
+   "text": "SIGUIÓ DICTANDO",
+   "start": 33.85,
+   "end": 36.2
+  },
+  {
+   "scene": 6,
+   "text": "VIVIÓ BIEN",
+   "start": 39.21,
+   "end": 41.56
+  },
+  {
+   "scene": 7,
+   "text": "CASI NADIE LO SABE",
+   "start": 44.62,
+   "end": 46.97
+  },
+  {
+   "scene": 8,
+   "text": "PARTE 2 PRÓXIMAMENTE",
+   "start": 49.85,
+   "end": 52.2
+  }
+ ],
+ "scenes": [
+  {
+   "id": "s1",
+   "start": 0.0,
+   "end": 5.78,
+   "keyword": "MUÉRETE, LE ORDENÓ"
+  },
+  {
+   "id": "s2",
+   "start": 5.78,
+   "end": 13.28,
+   "keyword": "SENTENCIA DE MUERTE"
+  },
+  {
+   "id": "s3",
+   "start": 13.28,
+   "end": 20.55,
+   "keyword": "GUARDEN MI EJEMPLO"
+  },
+  {
+   "id": "s4",
+   "start": 20.55,
+   "end": 27.98,
+   "keyword": "TARDABA EN MORIR"
+  },
+  {
+   "id": "s5a",
+   "start": 27.98,
+   "end": 33.6,
+   "keyword": "NI EL VENENO"
+  },
+  {
+   "id": "s5b",
+   "start": 33.6,
+   "end": 38.96,
+   "keyword": "SIGUIÓ DICTANDO"
+  },
+  {
+   "id": "s6",
+   "start": 38.96,
+   "end": 44.37,
+   "keyword": "VIVIÓ BIEN"
+  },
+  {
+   "id": "s7a",
+   "start": 44.37,
+   "end": 49.6,
+   "keyword": "CASI NADIE LO SABE"
+  },
+  {
+   "id": "s7b",
+   "start": 49.6,
+   "end": 54.94,
+   "keyword": "PARTE 2 PRÓXIMAMENTE"
+  }
+ ],
+ "layout": {
+  "canvas": [
+   1080,
+   1920
+  ],
+  "keyword_center_y": 760,
+  "subtitle_center_y": 1440,
+  "top_unsafe": 220,
+  "bottom_unsafe": 420,
+  "right_unsafe": 140,
+  "gap_px": 520
+ }
+}
