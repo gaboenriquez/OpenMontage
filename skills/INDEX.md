@@ -291,8 +291,9 @@ Channel-level skills that run around the pipeline (before `idea`/`script`, and a
 | Shorts Title Forge | `shorts-title-forge/SKILL.md` | Script lock and publish: theme line first, 8-12 two-part candidates under the channel template, title/thumbnail gap, kebab-case export names |
 | Script Humanizer | `script-humanizer/SKILL.md` | Script review: 22-pattern AI-flavor audit (ES/EN, spoken narration), rewrite only after intent is confirmed |
 | Post-Publish Review | `post-publish-review/SKILL.md` | After publish: grade against the channel median (R, M, retention), attribute drop-offs to lines and shots, deposit at least one asset into the knowledge base |
+| Viral Loop | `viral-loop/SKILL.md` | Orchestrator: Nexlev radar → idea bank → $0 production → Shorts → manual publish package → 48 h / 7 d review; owns the "con mi voz" rule (`voicestudio_tts`) |
 
-Recommended chain for a new Short: `shorts-hook-miner` → `shorts-hook-selector` → `shorts-title-forge` → `script-humanizer` → pipeline → `post-publish-review` → next `shorts-hook-selector` (with `metadata.hook_type` correlation).
+`viral-loop` runs the whole chain below on a schedule. Recommended chain for a new Short: `shorts-hook-miner` → `shorts-hook-selector` → `shorts-title-forge` → `script-humanizer` → pipeline → `post-publish-review` → next `shorts-hook-selector` (with `metadata.hook_type` correlation).
 
 ## Meta Skills
 
