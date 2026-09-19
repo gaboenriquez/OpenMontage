@@ -21,7 +21,12 @@ import { EstoicismoThumb, ThumbProps } from "./atelier/EstoicismoThumb";
 import { Seneca, TOTAL_FRAMES as SENECA_FRAMES } from "./atelier/Seneca";
 import { SenecaPaulina, TOTAL_FRAMES as SENECA_PAULINA_FRAMES } from "./atelier/SenecaPaulina";
 import { SenecaThumb, SenecaThumbProps } from "./atelier/SenecaThumb";
+import { Zenon, TOTAL_FRAMES as ZENON_FRAMES } from "./atelier/Zenon";
+import { ZenonThumb, ZenonThumbProps } from "./atelier/ZenonThumb";
+import { Diario, TOTAL_FRAMES as DIARIO_FRAMES } from "./atelier/Diario";
+import { DiarioThumb, DiarioThumbProps } from "./atelier/DiarioThumb";
 import { Marco, TOTAL_FRAMES as MARCO_FRAMES } from "./atelier/Marco";
+import { Colombia44, TOTAL_FRAMES as COLOMBIA44_FRAMES, Colombia44Props } from "./atelier/Colombia44";
 import { MarcoThumb, MarcoThumbProps } from "./atelier/MarcoThumb";
 
 // ---------------------------------------------------------------------------
@@ -365,6 +370,44 @@ export const Root: React.FC = () => {
       />
 
       <Composition
+        id="Zenon"
+        component={Zenon}
+        durationInFrames={ZENON_FRAMES}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      <Composition
+        id="ZenonThumb"
+        component={ZenonThumb}
+        durationInFrames={1}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ variant: "a" } as ZenonThumbProps}
+      />
+
+      <Composition
+        id="Diario"
+        component={Diario}
+        durationInFrames={DIARIO_FRAMES}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      <Composition
+        id="DiarioThumb"
+        component={DiarioThumb}
+        durationInFrames={1}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ variant: "a" } as DiarioThumbProps}
+      />
+
+      <Composition
         id="Marco"
         component={Marco}
         durationInFrames={MARCO_FRAMES}
@@ -401,6 +444,16 @@ export const Root: React.FC = () => {
         width={1080}
         height={1920}
         defaultProps={{ variant: "a" } as ThumbProps}
+      />
+
+      <Composition
+        id="Colombia44"
+        component={Colombia44}
+        durationInFrames={COLOMBIA44_FRAMES}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ narrationSrc: null } as Colombia44Props}
       />
 
     </>

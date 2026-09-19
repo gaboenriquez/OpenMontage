@@ -1,0 +1,688 @@
+{
+  "version": "1.0",
+  "project_id": "colombia-44-por-ciento",
+  "pipeline_type": "screen-demo",
+  "stage": "scene_plan",
+  "status": "completed",
+  "timestamp": "2026-09-09T03:05:21.082768+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "brief": {
+      "version": "1.0",
+      "title": "Colombia 44%: el dato que no est\u00e1 en el resumen ejecutivo",
+      "hook": "Colombia es el tercer pa\u00eds del mundo donde m\u00e1s va a cambiar tu trabajo antes de 2030.",
+      "key_points": [
+        "Colombia 44% de disrupci\u00f3n de habilidades vs 39% del promedio mundial (Fig. 3.2, p. 34)",
+        "El informe tiene 290 p\u00e1ginas; el an\u00e1lisis se hizo cruzando tablas con Claude, no ley\u00e9ndolo entero",
+        "De las 26 habilidades medidas, solo dos pierden valor hacia 2030 (Fig. 3.4, p. 37)",
+        "La sorpresa: lectura, escritura y matem\u00e1ticas (\u22124), junto a destreza manual (\u221224)",
+        "El otro extremo: IA y big data +87, ciberseguridad +70, y dos no t\u00e9cnicas \u2014 creatividad +66 y curiosidad +61"
+      ],
+      "core_message": "El dato que importa del Future of Jobs Report no est\u00e1 en el resumen ejecutivo: est\u00e1 en el fondo de la Figura 3.4.",
+      "cta": "En el siguiente video, el prompt completo.",
+      "tone": "Seco, informativo, sin entusiasmo forzado. Autoridad por trazabilidad, no por \u00e9nfasis.",
+      "style": "Dossier forense \u2014 la grabaci\u00f3n de pantalla real como prueba documental; el dise\u00f1o solo se\u00f1ala, nunca recrea.",
+      "target_audience": "Profesionales hispanohablantes de 20-40 a\u00f1os en trabajos no t\u00e9cnicos, preocupados por su empleabilidad hacia 2030",
+      "target_platform": "tiktok",
+      "target_duration_seconds": 50,
+      "reference_material": [
+        "TikTok/Grabaci\u00f3n de pantalla 2026-09-08 a la(s) 9.11.53 p.m..mov \u2014 Fig. 3.2, p. 34",
+        "TikTok/Grabaci\u00f3n de pantalla 2026-09-08 a la(s) 9.17.33 p.m..mov y 9.17.49 p.m..mov \u2014 Fig. 3.4, p. 37",
+        "TikTok/Grabaci\u00f3n de pantalla 2026-09-08 a la(s) 9.18.38 p.m..mov \u2014 las dos filas pierden el resaltado",
+        "TikTok/Grabaci\u00f3n de pantalla 2026-09-08 a la(s) 9.21.57 p.m..mov \u2014 portada, P\u00e1gina 1 de 290",
+        "TikTok/Grabaci\u00f3n de pantalla 2026-09-08 a la(s) 9.04.20 p.m..mov \u2014 prompt en claude.ai",
+        "TikTok/Grabaci\u00f3n de pantalla 2026-09-08 a la(s) 9.13.44 p.m..mov \u2014 respuesta de Claude"
+      ],
+      "angle_options": [
+        {
+          "name": "El dato enterrado",
+          "description": "El hallazgo no est\u00e1 en el resumen ejecutivo sino en el fondo de una tabla \u2014 elegido"
+        },
+        {
+          "name": "Colombia en el podio",
+          "description": "Titular nacional puro; se descart\u00f3 porque agota el inter\u00e9s en 4 segundos"
+        },
+        {
+          "name": "C\u00f3mo le\u00ed 290 p\u00e1ginas en 4 minutos",
+          "description": "Tutorial de m\u00e9todo; se descart\u00f3 porque convierte el dato en pretexto"
+        }
+      ],
+      "selected_angle": "El dato enterrado",
+      "metadata": {
+        "production_mode": "real_capture",
+        "aspect_ratio": "9:16",
+        "callout_strategy": "R\u00f3tulos Anton sobre banda superior; cita monoespaciada de figura y p\u00e1gina en cada plano; el resaltado amarillo del propio documento es el \u00fanico se\u00f1alador de color."
+      }
+    },
+    "decision_log": {
+      "version": "1.0",
+      "project_id": "colombia-44-por-ciento",
+      "decisions": [
+        {
+          "decision_id": "d-001",
+          "stage": "idea",
+          "category": "pipeline_selection",
+          "subject": "Pipeline de producci\u00f3n",
+          "options_considered": [
+            {
+              "option_id": "d-001-o1",
+              "label": "screen-demo",
+              "score": 0.95,
+              "reason": "Opci\u00f3n seleccionada."
+            },
+            {
+              "option_id": "d-001-o2",
+              "label": "clip-factory",
+              "score": 0.4,
+              "reason": "Considerada y descartada; ver `reason` de la decisi\u00f3n.",
+              "rejected_because": "Ver el campo `reason` de la decisi\u00f3n."
+            },
+            {
+              "option_id": "d-001-o3",
+              "label": "hybrid",
+              "score": 0.4,
+              "reason": "Considerada y descartada; ver `reason` de la decisi\u00f3n.",
+              "rejected_because": "Ver el campo `reason` de la decisi\u00f3n."
+            },
+            {
+              "option_id": "d-001-o4",
+              "label": "animated-explainer",
+              "score": 0.4,
+              "reason": "Considerada y descartada; ver `reason` de la decisi\u00f3n.",
+              "rejected_because": "Ver el campo `reason` de la decisi\u00f3n."
+            }
+          ],
+          "selected": "screen-demo",
+          "reason": "Todo el material visual son grabaciones de pantalla reales del PDF del WEF y de claude.ai. No hay nada que generar. | Descartado: clip-factory/podcast-repurpose parten de una fuente larga; animated-explainer generar\u00eda im\u00e1genes que aqu\u00ed ser\u00edan una recreaci\u00f3n de una prueba documental que ya existe.",
+          "user_visible": true,
+          "user_approved": false
+        },
+        {
+          "decision_id": "d-002",
+          "stage": "idea",
+          "category": "render_runtime_selection",
+          "subject": "Runtime de composici\u00f3n",
+          "options_considered": [
+            {
+              "option_id": "d-002-o1",
+              "label": "remotion",
+              "score": 0.95,
+              "reason": "Opci\u00f3n seleccionada."
+            },
+            {
+              "option_id": "d-002-o2",
+              "label": "hyperframes",
+              "score": 0.4,
+              "reason": "Considerada y descartada; ver `reason` de la decisi\u00f3n.",
+              "rejected_because": "Ver el campo `reason` de la decisi\u00f3n."
+            },
+            {
+              "option_id": "d-002-o3",
+              "label": "ffmpeg",
+              "score": 0.4,
+              "reason": "Considerada y descartada; ver `reason` de la decisi\u00f3n.",
+              "rejected_because": "Ver el campo `reason` de la decisi\u00f3n."
+            }
+          ],
+          "selected": "remotion",
+          "reason": "El guion est\u00e1 cronometrado al medio segundo y define movimientos (empuje lento, frenada en seco, beat de silencio de 0,5 s) que exigen control por fotograma. | Descartado: ffmpeg: los r\u00f3tulos quedar\u00edan quemados sin animaci\u00f3n y los zooms ser\u00edan recortes est\u00e1ticos. hyperframes: no disponible en esta m\u00e1quina \u2014 el paquete npm `hyperframes` no resuelve (timeout de registro).",
+          "user_visible": true,
+          "user_approved": false
+        },
+        {
+          "decision_id": "d-003",
+          "stage": "idea",
+          "category": "composition_mode",
+          "subject": "Modo de autor\u00eda",
+          "options_considered": [
+            {
+              "option_id": "d-003-o1",
+              "label": "atelier",
+              "score": 0.95,
+              "reason": "Opci\u00f3n seleccionada."
+            },
+            {
+              "option_id": "d-003-o2",
+              "label": "templated",
+              "score": 0.4,
+              "reason": "Considerada y descartada; ver `reason` de la decisi\u00f3n.",
+              "rejected_because": "Ver el campo `reason` de la decisi\u00f3n."
+            }
+          ],
+          "selected": "atelier",
+          "reason": "Los scene-types de cat\u00e1logo (stat_card, bar_chart) recrear\u00edan con gr\u00e1ficos propios la Figura 3.2 y la 3.4, que es exactamente lo que la pieza no debe hacer: el valor est\u00e1 en que se vea el documento real. | Descartado: templated: ning\u00fan scene-type del cat\u00e1logo sirve para superponer r\u00f3tulos sobre grabaci\u00f3n de pantalla.",
+          "user_visible": true,
+          "user_approved": false
+        },
+        {
+          "decision_id": "d-004",
+          "stage": "script",
+          "category": "voice_selection",
+          "subject": "Narraci\u00f3n",
+          "options_considered": [
+            {
+              "option_id": "d-004-o1",
+              "label": "user_recorded",
+              "score": 0.95,
+              "reason": "Opci\u00f3n seleccionada."
+            },
+            {
+              "option_id": "d-004-o2",
+              "label": "elevenlabs_tts",
+              "score": 0.4,
+              "reason": "Considerada y descartada; ver `reason` de la decisi\u00f3n.",
+              "rejected_because": "Ver el campo `reason` de la decisi\u00f3n."
+            },
+            {
+              "option_id": "d-004-o3",
+              "label": "ai33_tts",
+              "score": 0.4,
+              "reason": "Considerada y descartada; ver `reason` de la decisi\u00f3n.",
+              "rejected_because": "Ver el campo `reason` de la decisi\u00f3n."
+            }
+          ],
+          "selected": "user_recorded",
+          "reason": "Decisi\u00f3n del usuario. El archivo Sin t\u00edtulo.m4a de la carpeta lleg\u00f3 vac\u00edo (0,05 s), lo que sugiere que ya intentaba grabar su propia voz. | Descartado: TTS descartado por el usuario; no se gener\u00f3 ninguna llamada de pago.",
+          "user_visible": true,
+          "user_approved": true
+        },
+        {
+          "decision_id": "d-005",
+          "stage": "script",
+          "category": "concept_selection",
+          "subject": "Duraci\u00f3n y cierre",
+          "options_considered": [
+            {
+              "option_id": "d-005-o1",
+              "label": "34 s tal cual (5 beats)",
+              "score": 0.95,
+              "reason": "Opci\u00f3n seleccionada."
+            },
+            {
+              "option_id": "d-005-o2",
+              "label": "50 s con contraste y cierre",
+              "score": 0.4,
+              "reason": "Considerada y descartada; ver `reason` de la decisi\u00f3n.",
+              "rejected_because": "Ver el campo `reason` de la decisi\u00f3n."
+            },
+            {
+              "option_id": "d-005-o3",
+              "label": "34 s + cierre escrito por el usuario",
+              "score": 0.4,
+              "reason": "Considerada y descartada; ver `reason` de la decisi\u00f3n.",
+              "rejected_because": "Ver el campo `reason` de la decisi\u00f3n."
+            }
+          ],
+          "selected": "50 s \u2014 7 beats",
+          "reason": "El guion original cortaba en el giro sin payoff ni direcci\u00f3n. Se a\u00f1adieron dos beats: el otro extremo de la Figura 3.4 (+87/+70/+68/+66/+61) y una promesa concreta de siguiente video. | Descartado: 34 s: m\u00e1s punchy pero deja al espectador sin raz\u00f3n para volver.",
+          "user_visible": true,
+          "user_approved": true
+        },
+        {
+          "decision_id": "d-006",
+          "stage": "edit",
+          "category": "provider_selection",
+          "subject": "Subt\u00edtulos",
+          "options_considered": [
+            {
+              "option_id": "d-006-o1",
+              "label": "quemados palabra por palabra",
+              "score": 0.95,
+              "reason": "Opci\u00f3n seleccionada."
+            },
+            {
+              "option_id": "d-006-o2",
+              "label": "solo r\u00f3tulos",
+              "score": 0.4,
+              "reason": "Considerada y descartada; ver `reason` de la decisi\u00f3n.",
+              "rejected_because": "Ver el campo `reason` de la decisi\u00f3n."
+            },
+            {
+              "option_id": "d-006-o3",
+              "label": "solo .srt",
+              "score": 0.4,
+              "reason": "Considerada y descartada; ver `reason` de la decisi\u00f3n.",
+              "rejected_because": "Ver el campo `reason` de la decisi\u00f3n."
+            }
+          ],
+          "selected": "quemados palabra por palabra + .srt de respaldo",
+          "reason": "Decisi\u00f3n del usuario. Tiempos derivados por peso de caracteres desde script.json; se re-derivar\u00e1n del audio real con `transcriber` cuando llegue. | Descartado: solo r\u00f3tulos: pierde a quien mira sin sonido, mayor\u00eda en TikTok.",
+          "user_visible": true,
+          "user_approved": true
+        },
+        {
+          "decision_id": "d-007",
+          "stage": "script",
+          "category": "visual_accuracy_check",
+          "subject": "Verificaci\u00f3n de datos",
+          "options_considered": [
+            {
+              "option_id": "d-007-o1",
+              "label": "verificar contra el PDF original",
+              "score": 0.95,
+              "reason": "Opci\u00f3n seleccionada."
+            },
+            {
+              "option_id": "d-007-o2",
+              "label": "verificar contra las capturas del usuario",
+              "score": 0.4,
+              "reason": "Considerada y descartada; ver `reason` de la decisi\u00f3n.",
+              "rejected_because": "Ver el campo `reason` de la decisi\u00f3n."
+            }
+          ],
+          "selected": "verificado contra las grabaciones fuente",
+          "reason": "Colombia 44% y 'All' 39% le\u00eddos en Fig. 3.2 p. 34; las dos \u00fanicas filas negativas de Fig. 3.4 p. 37 son manual dexterity (\u221224) y reading/writing/mathematics (\u22124); tope de la tabla 87/70/68/66/61. Ninguna cifra del guion es inventada. | Descartado: El PDF original no est\u00e1 en la carpeta; las grabaciones muestran las figuras con su n\u00famero de p\u00e1gina, lo que basta para trazar cada afirmaci\u00f3n.",
+          "user_visible": true,
+          "user_approved": false
+        }
+      ]
+    },
+    "script": {
+      "version": "1.0",
+      "title": "Colombia 44%: el dato que no est\u00e1 en el resumen ejecutivo",
+      "total_duration_seconds": 50.0,
+      "voice_performance": {
+        "performance_intent": "Voz propia del usuario (es-CO). Seco, informativo, sin entusiasmo forzado; ritmo de lectura de dato.",
+        "pacing_profile": "technical",
+        "energy_curve": "Entrada plana y firme en el hook, aceleracion en el hallazgo, frenada total en el giro, cierre seco.",
+        "pause_policy": "Beat de silencio de 0.5 s obligatorio despues de 'matematicas' (s5_giro). Pausa corta tras 'no las lei' (s3) y tras 'Mundial' (s2).",
+        "sample_section_id": "s5_giro",
+        "provider_notes": {
+          "source": "user_recorded - no se genera TTS; el montaje se resincroniza al audio entregado por el usuario"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1_hook",
+          "label": "Hook \u2014 el dato es el primer fotograma",
+          "text": "Colombia es el tercer pa\u00eds del mundo donde m\u00e1s va a cambiar tu trabajo antes de 2030.",
+          "start_seconds": 0.0,
+          "end_seconds": 4.0,
+          "speaker_directions": "Sin saludo, sin pre\u00e1mbulo. Entra en fr\u00edo, tono de titular.",
+          "delivery_cues": {
+            "pace": "measured",
+            "energy": "firme, titular",
+            "emphasis_words": [
+              "tercer",
+              "2030"
+            ],
+            "pause_after_seconds": 0.2,
+            "delivery_note": "Entrada en frio, sin saludo."
+          },
+          "enhancement_cues": [
+            {
+              "type": "broll",
+              "description": "[rec_fig32] Fig 3.2 p\u00e1g. 34, fila Colombia resaltada \u2014 arranca ya sobre la tabla",
+              "timestamp_seconds": 0.0
+            },
+            {
+              "type": "overlay",
+              "description": "COLOMBIA / 3.\u00ba DEL MUNDO",
+              "timestamp_seconds": 0.0
+            }
+          ],
+          "source_ref": "WEF Future of Jobs Report 2025, Fig. 3.2, p. 34"
+        },
+        {
+          "id": "s2_prueba",
+          "label": "Prueba \u2014 la fuente y el contraste num\u00e9rico",
+          "text": "Lo dice el Foro Econ\u00f3mico Mundial. El 44% de las habilidades de tu trabajo van a cambiar. El promedio mundial es 39%.",
+          "start_seconds": 4.0,
+          "end_seconds": 9.0,
+          "speaker_directions": "Bajar medio tono en 'Foro Econ\u00f3mico Mundial'. Marcar los dos n\u00fameros.",
+          "delivery_cues": {
+            "pace": "measured",
+            "energy": "baja medio tono en la fuente",
+            "emphasis_words": [
+              "44%",
+              "39%"
+            ],
+            "pause_after_seconds": 0.2,
+            "delivery_note": "Marcar el contraste de los dos numeros."
+          },
+          "enhancement_cues": [
+            {
+              "type": "broll",
+              "description": "[rec_fig32] Zoom lento sobre la fila Colombia; fila 'All' 39% visible",
+              "timestamp_seconds": 4.0
+            },
+            {
+              "type": "overlay",
+              "description": "COLOMBIA 44% \u00b7 MUNDO 39%",
+              "timestamp_seconds": 4.0
+            },
+            {
+              "type": "overlay",
+              "description": "Future of Jobs Report 2025 \u2014 arriba, persistente",
+              "timestamp_seconds": 4.0
+            }
+          ],
+          "source_ref": "WEF Future of Jobs Report 2025, Fig. 3.2, p. 34"
+        },
+        {
+          "id": "s3_metodo",
+          "label": "M\u00e9todo \u2014 la confesi\u00f3n que compra credibilidad",
+          "text": "El informe tiene 290 p\u00e1ginas. Yo no las le\u00ed. Le ped\u00ed a Claude que cruzara la tabla de pa\u00edses con la de habilidades.",
+          "start_seconds": 9.0,
+          "end_seconds": 15.0,
+          "speaker_directions": "'Yo no las le\u00ed' se dice plano, sin disculpa. Es el gancho de honestidad.",
+          "delivery_cues": {
+            "pace": "conversational",
+            "energy": "confesional, plano",
+            "emphasis_words": [
+              "290",
+              "no las lei"
+            ],
+            "pause_after_seconds": 0.4,
+            "delivery_note": "'Yo no las lei' sin disculpa."
+          },
+          "enhancement_cues": [
+            {
+              "type": "broll",
+              "description": "[rec_portada] Portada del informe, 'P\u00e1gina 1 de 290' legible",
+              "timestamp_seconds": 9.0
+            },
+            {
+              "type": "broll",
+              "description": "[rec_prompt] PDF cargado en claude.ai + prompt escrito \u2014 m\u00e1ximo 4 s",
+              "timestamp_seconds": 9.0
+            },
+            {
+              "type": "overlay",
+              "description": "290 P\u00c1GINAS / NO LAS LE\u00cd",
+              "timestamp_seconds": 9.0
+            }
+          ],
+          "source_ref": "Captura de claude.ai con WEF_Future_of_Jobs_Report_2025.pdf"
+        },
+        {
+          "id": "s4_hallazgo",
+          "label": "Hallazgo \u2014 lo que no est\u00e1 en el resumen ejecutivo",
+          "text": "Y encontr\u00f3 algo que no est\u00e1 en el resumen ejecutivo. El Foro midi\u00f3 26 habilidades. De esas 26, solo dos van a perder valor de aqu\u00ed a 2030.",
+          "start_seconds": 15.0,
+          "end_seconds": 26.0,
+          "speaker_directions": "Acelerar en 'midi\u00f3 26 habilidades', frenar en 'solo dos'.",
+          "delivery_cues": {
+            "pace": "brisk",
+            "energy": "acelera y frena",
+            "emphasis_words": [
+              "26",
+              "solo dos"
+            ],
+            "pause_before_seconds": 0.15,
+            "delivery_note": "Separar 'solo dos'."
+          },
+          "enhancement_cues": [
+            {
+              "type": "broll",
+              "description": "[rec_fig34_lista] Lista Fig 3.4 desplaz\u00e1ndose r\u00e1pido y frenando en seco al llegar al fondo",
+              "timestamp_seconds": 15.0
+            },
+            {
+              "type": "overlay",
+              "description": "26 HABILIDADES / SOLO 2 PIERDEN VALOR",
+              "timestamp_seconds": 15.0
+            }
+          ],
+          "source_ref": "WEF Future of Jobs Report 2025, Fig. 3.4, p. 37"
+        },
+        {
+          "id": "s5_giro",
+          "label": "Giro \u2014 la segunda no la esperabas",
+          "text": "La primera es previsible: destreza manual. La segunda no: lectura, escritura y matem\u00e1ticas.",
+          "start_seconds": 26.0,
+          "end_seconds": 34.0,
+          "speaker_directions": "Beat de silencio de medio segundo despu\u00e9s de 'matem\u00e1ticas'. No rellenar.",
+          "delivery_cues": {
+            "pace": "slow",
+            "energy": "revelacion contenida",
+            "emphasis_words": [
+              "destreza manual",
+              "lectura, escritura y matematicas"
+            ],
+            "pause_after_seconds": 0.5,
+            "delivery_note": "Beat de silencio duro de 0.5 s. No rellenar con musica."
+          },
+          "enhancement_cues": [
+            {
+              "type": "broll",
+              "description": "[rec_fig34_fondo] Zoom brusco al \u22124; las dos \u00fanicas filas sin resaltar en amarillo",
+              "timestamp_seconds": 26.0
+            },
+            {
+              "type": "overlay",
+              "description": "LECTURA, ESCRITURA / Y MATEM\u00c1TICAS \u22124",
+              "timestamp_seconds": 26.0
+            },
+            {
+              "type": "overlay",
+              "description": "Fig. 3.4, p. 37 \u2014 esquina inferior",
+              "timestamp_seconds": 26.0
+            }
+          ],
+          "source_ref": "WEF Future of Jobs Report 2025, Fig. 3.4, p. 37 (net increase \u22124 y \u221224)"
+        },
+        {
+          "id": "s6_contraste",
+          "label": "Contraste \u2014 el otro extremo de la misma tabla (NUEVO)",
+          "text": "El otro extremo de la tabla es lo que importa. Arriba: IA y big data. Ciberseguridad. Alfabetizaci\u00f3n tecnol\u00f3gica. Y dos que no son t\u00e9cnicas: pensamiento creativo y curiosidad.",
+          "start_seconds": 34.0,
+          "end_seconds": 44.0,
+          "speaker_directions": "Ritmo de lista, staccato. 'Y dos que no son t\u00e9cnicas' cambia el tono, m\u00e1s lento.",
+          "delivery_cues": {
+            "pace": "brisk",
+            "energy": "lista staccato que se abre al final",
+            "emphasis_words": [
+              "IA y big data",
+              "pensamiento creativo",
+              "curiosidad"
+            ],
+            "delivery_note": "Cambiar de ritmo en 'y dos que no son tecnicas'."
+          },
+          "enhancement_cues": [
+            {
+              "type": "broll",
+              "description": "[rec_fig34_lista] Scroll invertido: del fondo hacia arriba de la tabla, columna Net increase visible",
+              "timestamp_seconds": 34.0
+            },
+            {
+              "type": "overlay",
+              "description": "IA Y BIG DATA +87",
+              "timestamp_seconds": 34.0
+            },
+            {
+              "type": "overlay",
+              "description": "CREATIVIDAD +66 \u00b7 CURIOSIDAD +61",
+              "timestamp_seconds": 34.0
+            }
+          ],
+          "source_ref": "WEF Future of Jobs Report 2025, Fig. 3.4, p. 37 (net increase: AI and big data 87, networks and cybersecurity 70, technological literacy 68, creative thinking 66, curiosity and lifelong learning 61)"
+        },
+        {
+          "id": "s7_cierre",
+          "label": "Cierre \u2014 direcci\u00f3n al siguiente video (NUEVO)",
+          "text": "290 p\u00e1ginas. Cuatro minutos. Y ya s\u00e9 qu\u00e9 estudiar este a\u00f1o. En el siguiente video te muestro el prompt completo.",
+          "start_seconds": 44.0,
+          "end_seconds": 50.0,
+          "speaker_directions": "Cerrar seco. No pedir like ni suscripci\u00f3n \u2014 solo la promesa concreta.",
+          "delivery_cues": {
+            "pace": "measured",
+            "energy": "cierre seco",
+            "emphasis_words": [
+              "290 paginas",
+              "cuatro minutos",
+              "prompt completo"
+            ],
+            "delivery_note": "Sin pedir like ni suscripcion."
+          },
+          "enhancement_cues": [
+            {
+              "type": "broll",
+              "description": "[rec_respuesta] Respuesta de Claude: '1. Las 5 habilidades que m\u00e1s aumentar\u00e1n tu valor hacia 2030'",
+              "timestamp_seconds": 44.0
+            },
+            {
+              "type": "overlay",
+              "description": "EL PROMPT COMPLETO \u2192 SIGUIENTE VIDEO",
+              "timestamp_seconds": 44.0
+            }
+          ],
+          "source_ref": "Captura de la respuesta de Claude en claude.ai"
+        }
+      ],
+      "metadata": {
+        "language": "es-CO",
+        "aspect_ratio": "9:16",
+        "resolution": "1080x1920",
+        "word_count": 152,
+        "script_mode": "silent_source_user_voiceover",
+        "sections_needing_zoom": [
+          "s2_prueba",
+          "s5_giro"
+        ],
+        "speed_plan": [
+          {
+            "section": "s4_hallazgo",
+            "treatment": "speed_up",
+            "note": "scroll de la lista acelerado, frena en seco al final"
+          },
+          {
+            "section": "s5_giro",
+            "treatment": "realtime",
+            "note": "momento de prueba \u2014 nunca acelerar"
+          },
+          {
+            "section": "s3_metodo",
+            "treatment": "speed_up",
+            "note": "el prompt en pantalla m\u00e1x. 4 s"
+          }
+        ],
+        "callout_candidates": [
+          "fila Colombia 44% (Fig 3.2)",
+          "fila All 39% (Fig 3.2)",
+          "P\u00e1gina 1 de 290",
+          "Reading, writing and mathematics \u22124",
+          "Manual dexterity, endurance and precision \u221224",
+          "AI and big data 87"
+        ],
+        "fact_verification": {
+          "status": "verified_against_source_recordings",
+          "checks": [
+            "Colombia 44% y promedio mundial ('All') 39% confirmados en Fig. 3.2, p\u00e1g. 34 de 290",
+            "Fig. 3.4 p\u00e1g. 37: \u00fanicas dos filas con net increase negativo son manual dexterity (\u221224) y reading/writing/mathematics (\u22124)",
+            "Top de net increase: AI and big data 87, networks and cybersecurity 70, technological literacy 68, creative thinking 66, curiosity and lifelong learning 61",
+            "El informe advierte en p. 22 que sus conclusiones 'no deben tratarse como exhaustivas'"
+          ]
+        }
+      }
+    },
+    "scene_plan": {
+      "version": "1.0",
+      "scenes": [
+        {
+          "id": "sc1",
+          "type": "screen_recording",
+          "description": "Hook \u2014 la tabla entera como objeto. fig32.mp4 desde 0,3 s; encuadre s=1.15 x=0.44 y=0.30, empuje casi imperceptible. La fila Colombia (y=0.238 del fuente) ya viene resaltada en amarillo por el documento.",
+          "start_seconds": 0,
+          "end_seconds": 4
+        },
+        {
+          "id": "sc2",
+          "type": "screen_recording",
+          "description": "Prueba \u2014 dos n\u00fameros enfrentados. fig32.mp4 desde 3,3 s; empuje lento s=1.05\u21921.18, x=0.47, y=0.40 para tener a la vez Colombia (0.238) y la fila All (0.555) con nombres y porcentajes legibles.",
+          "start_seconds": 4,
+          "end_seconds": 9
+        },
+        {
+          "id": "sc3a",
+          "type": "screen_recording",
+          "description": "M\u00e9todo I \u2014 el documento como objeto. portada.mp4 desde 0,6 s, sin empuje. Cita: \u00abP\u00e1gina 1 de 290\u00bb.",
+          "start_seconds": 9,
+          "end_seconds": 11.2
+        },
+        {
+          "id": "sc3b",
+          "type": "screen_recording",
+          "description": "M\u00e9todo II \u2014 la conversaci\u00f3n. prompt.mp4 desde 0,5 s, empuje s=1.10\u21921.20. M\u00e1ximo 3,8 s en pantalla.",
+          "start_seconds": 11.2,
+          "end_seconds": 15
+        },
+        {
+          "id": "sc4a",
+          "type": "screen_recording",
+          "description": "Hallazgo I \u2014 la tabla completa, fr\u00eda y peque\u00f1a. fig34_full.mp4 desde 0,2 s, s=1.06.",
+          "start_seconds": 15,
+          "end_seconds": 17.2
+        },
+        {
+          "id": "sc4b",
+          "type": "screen_recording",
+          "description": "Hallazgo II \u2014 la lista como r\u00edo vertical. fig34_lista.mp4 desde 0,15 s, s=1.45 x=0.35: solo los nombres, sin n\u00fameros.",
+          "start_seconds": 17.2,
+          "end_seconds": 20.9
+        },
+        {
+          "id": "sc4c",
+          "type": "screen_recording",
+          "description": "Hallazgo III \u2014 la columna Net increase (x=0.933 del fuente). fig34_full.mp4 desde 2,6 s, s=1.90 x=0.74 y=0.38.",
+          "start_seconds": 20.9,
+          "end_seconds": 23.3
+        },
+        {
+          "id": "sc4d",
+          "type": "screen_recording",
+          "description": "Hallazgo IV \u2014 el fondo de la tabla, las dos filas todav\u00eda resaltadas. fig34_fondo.mp4 desde 0,2 s, s=1.0 y=0.55. R\u00f3tulo \u00abSolo 2 pierden valor\u00bb en rojo alarma.",
+          "start_seconds": 23.3,
+          "end_seconds": 26
+        },
+        {
+          "id": "sc5",
+          "type": "screen_recording",
+          "description": "Giro \u2014 dispositivo de firma: las dos filas pierden el resaltado EN C\u00c1MARA. fig34_fondo.mp4 desde 3,2 s; empuje brusco en 70 frames s=1.06\u21921.38, x=0.50\u21920.585, y=0.70\u21920.735. El tope de escala es 1.38: m\u00e1s all\u00e1 se corta la frase \u00abReading, writing and mathematics\u00bb (llega a x=0.94).",
+          "start_seconds": 26,
+          "end_seconds": 32.5
+        },
+        {
+          "id": "sc5f",
+          "type": "screen_recording",
+          "description": "[congelaci\u00f3n] Beat de silencio \u2014 congelaci\u00f3n total de 1,5 s. Sin movimiento, sin subt\u00edtulo, sin m\u00fasica. El vac\u00edo es el elemento.",
+          "start_seconds": 32.5,
+          "end_seconds": 34
+        },
+        {
+          "id": "sc6",
+          "type": "screen_recording",
+          "description": "Contraste \u2014 las cifras extra\u00eddas como tipograf\u00eda sobre la tabla atenuada al 62%. fig34_full.mp4 desde 2,5 s a 0.45x, a sangre. +87 +70 +68 en gris, +66 y +61 en amarillo (las no t\u00e9cnicas).",
+          "start_seconds": 34,
+          "end_seconds": 44
+        },
+        {
+          "id": "sc7",
+          "type": "screen_recording",
+          "description": "Cierre \u2014 inversi\u00f3n tonal completa. respuesta.mp4 desde 6,0 s con filtro invert(1) hue-rotate(180deg): la captura en oscuro se imprime en claro. Texto negro sobre papel.",
+          "start_seconds": 44,
+          "end_seconds": 50
+        }
+      ],
+      "metadata": {
+        "canvas": "1080x1920 @30fps",
+        "runtime": "remotion",
+        "composition_mode": "atelier",
+        "component": "remotion-composer/src/atelier/Colombia44.tsx",
+        "bands": {
+          "rotulo": "y 120-520",
+          "evidencia": "y 540-1540",
+          "cita": "y 1548-1596",
+          "subtitulo": "y 1620-1810"
+        },
+        "source_native": {
+          "pdf": "1416x1486 (recorte de contenido 112,76)",
+          "chat": "1148x1504 (recorte de contenido 112,76)"
+        },
+        "scene_distinctness": "Ning\u00fan par de escenas comparte sujeto visual primario. sc4b y sc6 usan la misma figura fuente con sujetos opuestos: en sc4b el sujeto es el movimiento de los nombres; en sc6 son las cifras aisladas como tipograf\u00eda, con la tabla degradada a fondo. sc7 invierte el valor tonal de toda la pieza."
+      }
+    }
+  }
+}

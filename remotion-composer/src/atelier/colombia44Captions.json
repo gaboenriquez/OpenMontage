@@ -1,0 +1,757 @@
+[
+{
+"text": "Colombia",
+"startMs": 0,
+"endMs": 377
+},
+{
+"text": "es",
+"startMs": 377,
+"endMs": 528
+},
+{
+"text": "el",
+"startMs": 528,
+"endMs": 679
+},
+{
+"text": "tercer",
+"startMs": 679,
+"endMs": 981
+},
+{
+"text": "país",
+"startMs": 981,
+"endMs": 1208
+},
+{
+"text": "del",
+"startMs": 1208,
+"endMs": 1397
+},
+{
+"text": "mundo",
+"startMs": 1397,
+"endMs": 1661
+},
+{
+"text": "donde",
+"startMs": 1661,
+"endMs": 1925
+},
+{
+"text": "más",
+"startMs": 1925,
+"endMs": 2114
+},
+{
+"text": "va",
+"startMs": 2114,
+"endMs": 2265
+},
+{
+"text": "a",
+"startMs": 2265,
+"endMs": 2378
+},
+{
+"text": "cambiar",
+"startMs": 2378,
+"endMs": 2718
+},
+{
+"text": "tu",
+"startMs": 2718,
+"endMs": 2869
+},
+{
+"text": "trabajo",
+"startMs": 2869,
+"endMs": 3208
+},
+{
+"text": "antes",
+"startMs": 3208,
+"endMs": 3473
+},
+{
+"text": "de",
+"startMs": 3473,
+"endMs": 3624
+},
+{
+"text": "2030.",
+"startMs": 3624,
+"endMs": 3850
+},
+{
+"text": "Lo",
+"startMs": 4000,
+"endMs": 4146
+},
+{
+"text": "dice",
+"startMs": 4146,
+"endMs": 4365
+},
+{
+"text": "el",
+"startMs": 4365,
+"endMs": 4511
+},
+{
+"text": "Foro",
+"startMs": 4511,
+"endMs": 4730
+},
+{
+"text": "Económico",
+"startMs": 4730,
+"endMs": 5131
+},
+{
+"text": "Mundial.",
+"startMs": 5131,
+"endMs": 5460
+},
+{
+"text": "El",
+"startMs": 5460,
+"endMs": 5606
+},
+{
+"text": "44%",
+"startMs": 5606,
+"endMs": 5788
+},
+{
+"text": "de",
+"startMs": 5788,
+"endMs": 5934
+},
+{
+"text": "las",
+"startMs": 5934,
+"endMs": 6117
+},
+{
+"text": "habilidades",
+"startMs": 6117,
+"endMs": 6591
+},
+{
+"text": "de",
+"startMs": 6591,
+"endMs": 6737
+},
+{
+"text": "tu",
+"startMs": 6737,
+"endMs": 6883
+},
+{
+"text": "trabajo",
+"startMs": 6883,
+"endMs": 7212
+},
+{
+"text": "van",
+"startMs": 7212,
+"endMs": 7394
+},
+{
+"text": "a",
+"startMs": 7394,
+"endMs": 7504
+},
+{
+"text": "cambiar.",
+"startMs": 7504,
+"endMs": 7832
+},
+{
+"text": "El",
+"startMs": 7832,
+"endMs": 7978
+},
+{
+"text": "promedio",
+"startMs": 7978,
+"endMs": 8343
+},
+{
+"text": "mundial",
+"startMs": 8343,
+"endMs": 8672
+},
+{
+"text": "es",
+"startMs": 8672,
+"endMs": 8818
+},
+{
+"text": "39%.",
+"startMs": 8818,
+"endMs": 9000
+},
+{
+"text": "El",
+"startMs": 9000,
+"endMs": 9176
+},
+{
+"text": "informe",
+"startMs": 9176,
+"endMs": 9574
+},
+{
+"text": "tiene",
+"startMs": 9574,
+"endMs": 9882
+},
+{
+"text": "290",
+"startMs": 9882,
+"endMs": 10103
+},
+{
+"text": "páginas.",
+"startMs": 10103,
+"endMs": 10500
+},
+{
+"text": "Yo",
+"startMs": 10500,
+"endMs": 10676
+},
+{
+"text": "no",
+"startMs": 10676,
+"endMs": 10853
+},
+{
+"text": "las",
+"startMs": 10853,
+"endMs": 11074
+},
+{
+"text": "leí.",
+"startMs": 11074,
+"endMs": 11294
+},
+{
+"text": "Le",
+"startMs": 11294,
+"endMs": 11471
+},
+{
+"text": "pedí",
+"startMs": 11471,
+"endMs": 11735
+},
+{
+"text": "a",
+"startMs": 11735,
+"endMs": 11868
+},
+{
+"text": "Claude",
+"startMs": 11868,
+"endMs": 12221
+},
+{
+"text": "que",
+"startMs": 12221,
+"endMs": 12441
+},
+{
+"text": "cruzara",
+"startMs": 12441,
+"endMs": 12838
+},
+{
+"text": "la",
+"startMs": 12838,
+"endMs": 13015
+},
+{
+"text": "tabla",
+"startMs": 13015,
+"endMs": 13324
+},
+{
+"text": "de",
+"startMs": 13324,
+"endMs": 13500
+},
+{
+"text": "países",
+"startMs": 13500,
+"endMs": 13853
+},
+{
+"text": "con",
+"startMs": 13853,
+"endMs": 14074
+},
+{
+"text": "la",
+"startMs": 14074,
+"endMs": 14250
+},
+{
+"text": "de",
+"startMs": 14250,
+"endMs": 14426
+},
+{
+"text": "habilidades.",
+"startMs": 14426,
+"endMs": 15000
+},
+{
+"text": "Y",
+"startMs": 15000,
+"endMs": 15202
+},
+{
+"text": "encontró",
+"startMs": 15202,
+"endMs": 15877
+},
+{
+"text": "algo",
+"startMs": 15877,
+"endMs": 16282
+},
+{
+"text": "que",
+"startMs": 16282,
+"endMs": 16620
+},
+{
+"text": "no",
+"startMs": 16620,
+"endMs": 16890
+},
+{
+"text": "está",
+"startMs": 16890,
+"endMs": 17294
+},
+{
+"text": "en",
+"startMs": 17294,
+"endMs": 17564
+},
+{
+"text": "el",
+"startMs": 17564,
+"endMs": 17834
+},
+{
+"text": "resumen",
+"startMs": 17834,
+"endMs": 18442
+},
+{
+"text": "ejecutivo.",
+"startMs": 18442,
+"endMs": 19184
+},
+{
+"text": "El",
+"startMs": 19184,
+"endMs": 19454
+},
+{
+"text": "Foro",
+"startMs": 19454,
+"endMs": 19859
+},
+{
+"text": "midió",
+"startMs": 19859,
+"endMs": 20331
+},
+{
+"text": "26",
+"startMs": 20331,
+"endMs": 20601
+},
+{
+"text": "habilidades.",
+"startMs": 20601,
+"endMs": 21479
+},
+{
+"text": "De",
+"startMs": 21479,
+"endMs": 21748
+},
+{
+"text": "esas",
+"startMs": 21748,
+"endMs": 22153
+},
+{
+"text": "26,",
+"startMs": 22153,
+"endMs": 22423
+},
+{
+"text": "solo",
+"startMs": 22423,
+"endMs": 22828
+},
+{
+"text": "dos",
+"startMs": 22828,
+"endMs": 23166
+},
+{
+"text": "van",
+"startMs": 23166,
+"endMs": 23503
+},
+{
+"text": "a",
+"startMs": 23503,
+"endMs": 23706
+},
+{
+"text": "perder",
+"startMs": 23706,
+"endMs": 24245
+},
+{
+"text": "valor",
+"startMs": 24245,
+"endMs": 24718
+},
+{
+"text": "de",
+"startMs": 24718,
+"endMs": 24988
+},
+{
+"text": "aquí",
+"startMs": 24988,
+"endMs": 25393
+},
+{
+"text": "a",
+"startMs": 25393,
+"endMs": 25595
+},
+{
+"text": "2030.",
+"startMs": 25595,
+"endMs": 26000
+},
+{
+"text": "La",
+"startMs": 26000,
+"endMs": 26260
+},
+{
+"text": "primera",
+"startMs": 26260,
+"endMs": 26845
+},
+{
+"text": "es",
+"startMs": 26845,
+"endMs": 27105
+},
+{
+"text": "previsible:",
+"startMs": 27105,
+"endMs": 27885
+},
+{
+"text": "destreza",
+"startMs": 27885,
+"endMs": 28535
+},
+{
+"text": "manual.",
+"startMs": 28535,
+"endMs": 29055
+},
+{
+"text": "La",
+"startMs": 29055,
+"endMs": 29315
+},
+{
+"text": "segunda",
+"startMs": 29315,
+"endMs": 29900
+},
+{
+"text": "no:",
+"startMs": 29900,
+"endMs": 30160
+},
+{
+"text": "lectura,",
+"startMs": 30160,
+"endMs": 30745
+},
+{
+"text": "escritura",
+"startMs": 30745,
+"endMs": 31460
+},
+{
+"text": "y",
+"startMs": 31460,
+"endMs": 31655
+},
+{
+"text": "matemáticas.",
+"startMs": 31655,
+"endMs": 32500
+},
+{
+"text": "El",
+"startMs": 34000,
+"endMs": 34203
+},
+{
+"text": "otro",
+"startMs": 34203,
+"endMs": 34508
+},
+{
+"text": "extremo",
+"startMs": 34508,
+"endMs": 34964
+},
+{
+"text": "de",
+"startMs": 34964,
+"endMs": 35168
+},
+{
+"text": "la",
+"startMs": 35168,
+"endMs": 35371
+},
+{
+"text": "tabla",
+"startMs": 35371,
+"endMs": 35726
+},
+{
+"text": "es",
+"startMs": 35726,
+"endMs": 35929
+},
+{
+"text": "lo",
+"startMs": 35929,
+"endMs": 36132
+},
+{
+"text": "que",
+"startMs": 36132,
+"endMs": 36386
+},
+{
+"text": "importa.",
+"startMs": 36386,
+"endMs": 36843
+},
+{
+"text": "Arriba:",
+"startMs": 36843,
+"endMs": 37249
+},
+{
+"text": "IA",
+"startMs": 37249,
+"endMs": 37452
+},
+{
+"text": "y",
+"startMs": 37452,
+"endMs": 37604
+},
+{
+"text": "big",
+"startMs": 37604,
+"endMs": 37858
+},
+{
+"text": "data.",
+"startMs": 37858,
+"endMs": 38162
+},
+{
+"text": "Ciberseguridad.",
+"startMs": 38162,
+"endMs": 38975
+},
+{
+"text": "Alfabetización",
+"startMs": 38975,
+"endMs": 39787
+},
+{
+"text": "tecnológica.",
+"startMs": 39787,
+"endMs": 40447
+},
+{
+"text": "Y",
+"startMs": 40447,
+"endMs": 40599
+},
+{
+"text": "dos",
+"startMs": 40599,
+"endMs": 40853
+},
+{
+"text": "que",
+"startMs": 40853,
+"endMs": 41107
+},
+{
+"text": "no",
+"startMs": 41107,
+"endMs": 41310
+},
+{
+"text": "son",
+"startMs": 41310,
+"endMs": 41563
+},
+{
+"text": "técnicas:",
+"startMs": 41563,
+"endMs": 42071
+},
+{
+"text": "pensamiento",
+"startMs": 42071,
+"endMs": 42731
+},
+{
+"text": "creativo",
+"startMs": 42731,
+"endMs": 43239
+},
+{
+"text": "y",
+"startMs": 43239,
+"endMs": 43391
+},
+{
+"text": "curiosidad.",
+"startMs": 43391,
+"endMs": 44000
+},
+{
+"text": "290",
+"startMs": 44000,
+"endMs": 44209
+},
+{
+"text": "páginas.",
+"startMs": 44209,
+"endMs": 44586
+},
+{
+"text": "Cuatro",
+"startMs": 44586,
+"endMs": 44921
+},
+{
+"text": "minutos.",
+"startMs": 44921,
+"endMs": 45298
+},
+{
+"text": "Y",
+"startMs": 45298,
+"endMs": 45423
+},
+{
+"text": "ya",
+"startMs": 45423,
+"endMs": 45591
+},
+{
+"text": "sé",
+"startMs": 45591,
+"endMs": 45758
+},
+{
+"text": "qué",
+"startMs": 45758,
+"endMs": 45967
+},
+{
+"text": "estudiar",
+"startMs": 45967,
+"endMs": 46386
+},
+{
+"text": "este",
+"startMs": 46386,
+"endMs": 46637
+},
+{
+"text": "año.",
+"startMs": 46637,
+"endMs": 46847
+},
+{
+"text": "En",
+"startMs": 46847,
+"endMs": 47014
+},
+{
+"text": "el",
+"startMs": 47014,
+"endMs": 47181
+},
+{
+"text": "siguiente",
+"startMs": 47181,
+"endMs": 47642
+},
+{
+"text": "video",
+"startMs": 47642,
+"endMs": 47935
+},
+{
+"text": "te",
+"startMs": 47935,
+"endMs": 48102
+},
+{
+"text": "muestro",
+"startMs": 48102,
+"endMs": 48479
+},
+{
+"text": "el",
+"startMs": 48479,
+"endMs": 48647
+},
+{
+"text": "prompt",
+"startMs": 48647,
+"endMs": 48981
+},
+{
+"text": "completo.",
+"startMs": 48981,
+"endMs": 49400
+}
+]
