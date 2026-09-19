@@ -20,6 +20,50 @@ from tools.base_tool import (
 )
 
 
+def pick_device(torch_mod: Any) -> str:
+    """CUDA, then Apple Silicon (MPS), then CPU."""
+    if torch_mod.cuda.is_available():
+        return "cuda"
+    mps = getattr(getattr(torch_mod, "backends", None), "mps", None)
+    if mps is not None and mps.is_available():
+        return "mps"
+    return "cpu"
+
+
+def _load_pipeline(
+    model_id: str, lora: str | None, device: str, dtype: Any, vae: str | None = None
+) -> Any:
+    """Load any text-to-image checkpoint (SD 1.x/2.x or SDXL), optionally with a LoRA."""
+    from diffusers import AutoencoderKL, AutoPipelineForText2Image, EulerDiscreteScheduler
+
+    kwargs: dict[str, Any] = {"torch_dtype": dtype}
+    if vae:
+        # e.g. madebyollin/sdxl-vae-fp16-fix: SDXL's stock VAE upcasts to fp32 to
+        # decode, which asked for 19 GB at 1344x768 on a 16 GB Mac (measured
+        # 2026-09-19: 88-133 s/image swapping vs 20-28 s with the fp16 VAE).
+        kwargs["vae"] = AutoencoderKL.from_pretrained(vae, torch_dtype=dtype)
+    if dtype is not None and "xl" in model_id.lower():
+        kwargs["variant"] = "fp16"  # the fp16 weights are the ones downloaded
+    pipe = AutoPipelineForText2Image.from_pretrained(model_id, **kwargs)
+    if lora:
+        repo, _, weight = lora.partition(":")
+        if weight:
+            pipe.load_lora_weights(repo, weight_name=weight)
+        else:
+            pipe.load_lora_weights(repo)
+        pipe.fuse_lora()
+        pipe.unload_lora_weights()  # weights are fused; drop the adapter copy
+        if "lightning" in lora.lower():
+            # SDXL-Lightning was distilled with trailing timesteps.
+            pipe.scheduler = EulerDiscreteScheduler.from_config(
+                pipe.scheduler.config, timestep_spacing="trailing"
+            )
+    pipe = pipe.to(device)
+    if device != "cuda":
+        pipe.vae.enable_tiling()  # decode in tiles: bounded memory on MPS/CPU
+    return pipe
+
+
 class LocalDiffusion(BaseTool):
     name = "local_diffusion"
     version = "0.1.0"
@@ -37,6 +81,8 @@ class LocalDiffusion(BaseTool):
         "  pip install diffusers transformers accelerate torch"
     )
     agent_skills = []
+
+    _PIPELINES: dict[tuple, Any] = {}
 
     capabilities = ["generate_image", "generate_illustration", "text_to_image"]
     supports = {
@@ -66,6 +112,20 @@ class LocalDiffusion(BaseTool):
             "model": {
                 "type": "string",
                 "default": "stabilityai/stable-diffusion-2-1-base",
+            },
+            "lora": {
+                "type": "string",
+                "description": (
+                    "Optional LoRA as 'hf_repo:filename.safetensors' or a local path. "
+                    "An SDXL-Lightning LoRA switches the defaults to 8 steps, no CFG."
+                ),
+            },
+            "vae": {
+                "type": "string",
+                "description": (
+                    "Optional VAE repo. For SDXL on Apple Silicon use "
+                    "'madebyollin/sdxl-vae-fp16-fix' (~5x faster, no fp32 upcast)."
+                ),
             },
             "seed": {"type": "integer"},
             "num_inference_steps": {"type": "integer", "default": 30},
@@ -103,7 +163,6 @@ class LocalDiffusion(BaseTool):
             )
 
         import torch
-        from diffusers import StableDiffusionPipeline
 
         start = time.time()
         prompt = inputs["prompt"]
@@ -112,19 +171,28 @@ class LocalDiffusion(BaseTool):
         height = inputs.get("height", 512)
         seed = inputs.get("seed")
         model_id = inputs.get("model", "stabilityai/stable-diffusion-2-1-base")
-        steps = inputs.get("num_inference_steps", 30)
-        guidance = inputs.get("guidance_scale", 7.5)
+        lora = inputs.get("lora") or None
+        vae = inputs.get("vae") or None
+        lightning = bool(lora and "lightning" in lora.lower())
+        steps = inputs.get("num_inference_steps", 8 if lightning else 30)
+        guidance = inputs.get("guidance_scale", 0.0 if lightning else 7.5)
 
         try:
-            device = "cuda" if torch.cuda.is_available() else "cpu"
-            dtype = torch.float16 if device == "cuda" else torch.float32
+            device = pick_device(torch)
+            dtype = torch.float16 if device in ("cuda", "mps") else torch.float32
 
-            pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=dtype)
-            pipe = pipe.to(device)
+            # Loading SDXL costs ~20 s and ~7 GB; a 10-minute video needs ~150
+            # images, so the pipeline is kept for the life of the process.
+            key = (model_id, lora, vae, device)
+            pipe = self._PIPELINES.get(key)
+            if pipe is None:
+                self._PIPELINES.clear()  # one model resident at a time (16 GB Macs)
+                pipe = _load_pipeline(model_id, lora, device, dtype, vae)
+                self._PIPELINES[key] = pipe
 
             generator = None
             if seed is not None:
-                generator = torch.Generator(device=device).manual_seed(seed)
+                generator = torch.Generator("cpu").manual_seed(seed)
 
             image = pipe(
                 prompt,

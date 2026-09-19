@@ -119,6 +119,13 @@ Pick the pipeline, then follow its director skills in `skills/pipelines/`:
 | Science, "por qué pasa X", concepts | `animated-explainer` with Remotion / HyperFrames, free images | $0 |
 | Long video → Shorts | `clip-factory` on our own render | $0 |
 
+**Cartoon look** (what is outperforming in the Spanish business niche): use the
+recipe in `.channel/_estilos/caricatura-calida.md` — `local_diffusion` with SDXL +
+Lightning LoRA + fp16-fix VAE, fixed host character, one simple action per image,
+no text inside images, Ken Burns motion and captions in Remotion. Generate all
+images for a video in ONE process (the pipeline stays loaded), review them as a
+contact sheet, and re-roll off-model shots with a new seed before composing.
+
 Script structure (long form): hook opens on the payoff, no greeting; stakes by
 30 s; an open loop every ~60 s; specific payoff at the end. Then
 `shorts-hook-selector` for the opening, `script-humanizer` in audit mode, and the

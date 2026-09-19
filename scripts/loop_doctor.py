@@ -144,6 +144,20 @@ def check_spanish_fallback_voice() -> None:
         )
 
 
+def check_cartoon_models() -> None:
+    hub = Path(os.environ.get("HF_HOME", Path.home() / ".cache" / "huggingface")) / "hub"
+    needed = {
+        "SDXL base": "models--stabilityai--stable-diffusion-xl-base-1.0",
+        "SDXL-Lightning LoRA": "models--ByteDance--SDXL-Lightning",
+        "fp16-fix VAE": "models--madebyollin--sdxl-vae-fp16-fix",
+    }
+    missing = [name for name, d in needed.items() if not (hub / d).is_dir()]
+    if missing:
+        report("WARN", f"cartoon image models missing: {', '.join(missing)}", "see .channel/_estilos/caricatura-calida.md")
+    else:
+        report("OK", "cartoon image models (SDXL + Lightning + fp16 VAE)")
+
+
 def check_disk() -> None:
     free_gb = shutil.disk_usage(ROOT).free / 1e9
     if free_gb >= MIN_FREE_GB:
@@ -153,7 +167,7 @@ def check_disk() -> None:
 
 
 def main() -> int:
-    for check in (check_binaries, check_upstream, check_voicestudio, check_env_and_budget, check_tools, check_spanish_fallback_voice, check_disk):
+    for check in (check_binaries, check_upstream, check_voicestudio, check_env_and_budget, check_tools, check_spanish_fallback_voice, check_cartoon_models, check_disk):
         try:
             check()
         except Exception as exc:  # noqa: BLE001  one broken check must not hide the others
