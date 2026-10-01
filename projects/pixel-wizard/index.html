@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Pixel Wizard</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #120c1a;
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+      }
+      #stage {
+        position: absolute;
+        inset: 0;
+        width: 1080px;
+        height: 1920px;
+      }
+      #screen {
+        display: block;
+        width: 1080px;
+        height: 1920px;
+        image-rendering: pixelated;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="12"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div id="stage" class="clip" data-start="0" data-duration="12" data-track-index="0">
+        <canvas id="screen" width="1080" height="1920"></canvas>
+      </div>
+    </div>
+    <script>
+      // Pixel-art wizard, drawn as a pure function of time.
+      // Logical canvas 72x128, scaled x15 (integer) to 1080x1920 (9:16).
+      const W = 72, H = 128, SCALE = 15, CYCLE = 6;
+      const GROUND = 100;
+
+      const HEX = {
+        sky0: "#0b0a1e", sky1: "#141233", sky2: "#1f1a4a", sky3: "#2b2160",
+        star: "#fff6d3", starDim: "#8f88c9",
+        moon: "#f3e9c6", moonShade: "#c9bd94",
+        hill: "#19142a", stoneDark: "#2a2438", stone: "#3b3350", stoneLight: "#4f4566",
+        outline: "#120c1a",
+        robeDark: "#8a2b3a", robe: "#c2453d", trim: "#e0703c",
+        skin: "#f0b48a", skinShade: "#c9845e",
+        beard: "#e8e6f0", beardShade: "#b5b2c8",
+        wood: "#6b4426", woodDark: "#3e2614",
+        m0: "#ffffff", m1: "#a6f7ff", m2: "#3cc6ff", m3: "#8a5cff", m4: "#2b2a7a",
+      };
+      const RGB = {};
+      for (const k in HEX) {
+        const h = HEX[k];
+        RGB[k] = [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+      }
+
+      const screen = document.getElementById("screen");
+      const sctx = screen.getContext("2d");
+      sctx.imageSmoothingEnabled = false;
+
+      const lo = document.createElement("canvas");
+      lo.width = W; lo.height = H;
+      const ctx = lo.getContext("2d");
+
+      const wz = document.createElement("canvas");
+      wz.width = W; wz.height = H;
+      const wctx = wz.getContext("2d", { willReadFrequently: true });
+
+      // ---------- helpers ----------
+      const R = Math.round;
+      function rect(c, x, y, w, h, col) {
+        c.fillStyle = HEX[col];
+        c.fillRect(R(x), R(y), w, h);
+      }
+      function px(c, x, y, col) { rect(c, x, y, 1, 1, col); }
+      function line(c, x0, y0, x1, y1, col, size = 1) {
+        x0 = R(x0); y0 = R(y0); x1 = R(x1); y1 = R(y1);
+        const dx = Math.abs(x1 - x0), dy = -Math.abs(y1 - y0);
+        const sx = x0 < x1 ? 1 : -1, sy = y0 < y1 ? 1 : -1;
+        let err = dx + dy;
+        c.fillStyle = HEX[col];
+        for (;;) {
+          c.fillRect(x0, y0, size, size);
+          if (x0 === x1 && y0 === y1) break;
+          const e2 = 2 * err;
+          if (e2 >= dy) { err += dy; x0 += sx; }
+          if (e2 <= dx) { err += dx; y0 += sy; }
+        }
+      }
+      function ring(c, cx, cy, r, col) {
+        cx = R(cx); cy = R(cy); r = R(r);
+        let x = r, y = 0, err = 1 - r;
+        c.fillStyle = HEX[col];
+        while (x >= y) {
+          const pts = [[x, y], [y, x], [-y, x], [-x, y], [-x, -y], [-y, -x], [y, -x], [x, -y]];
+          for (const [a, b] of pts) c.fillRect(cx + a, cy + b, 1, 1);
+          y++;
+          if (err < 0) err += 2 * y + 1;
+          else { x--; err += 2 * (y - x) + 1; }
+        }
+      }
+      function hash(i) {
+        const s = Math.sin(i * 12.9898 + 78.233) * 43758.5453;
+        return s - Math.floor(s);
+      }
+      const clamp01 = (v) => Math.max(0, Math.min(1, v));
+      const easeInOut = (p) => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2);
+      const easeOut = (p) => 1 - Math.pow(1 - p, 3);
+      const lerp = (a, b, p) => a + (b - a) * p;
+      // white -> magic -> dark before vanishing
+      function lifeColor(p) {
+        if (p < 0.22) return "m0";
+        if (p < 0.5) return "m1";
+        if (p < 0.72) return "m2";
+        if (p < 0.88) return "m3";
+        return "m4";
+      }
+
+      // ---------- pose state machine ----------
+      const POSE = {
+        idle:   { a: 0.16, hx: 7,  hy: -12, head: 0 },
+        raised: { a: -0.06, hx: 8, hy: -22, head: -1 },
+        cast:   { a: 1.22, hx: 11, hy: -18, head: 1 },
+      };
+      function mix(A, B, p) {
+        return { a: lerp(A.a, B.a, p), hx: lerp(A.hx, B.hx, p), hy: lerp(A.hy, B.hy, p), head: lerp(A.head, B.head, p) };
+      }
+      function poseAt(tc) {
+        // Pose is sampled at 10 fps so the character moves like hand-drawn pixel animation.
+        const t = Math.floor(tc * 10) / 10;
+        let p, phase;
+        if (t < 2.0) { p = POSE.idle; phase = "idle"; }
+        else if (t < 2.4) { p = mix(POSE.idle, POSE.raised, easeInOut((t - 2.0) / 0.4)); phase = "charge"; }
+        else if (t < 3.6) {
+          p = { ...POSE.raised };
+          if (t >= 3.0) p.hy += Math.floor(t * 10) % 2; // tension tremble
+          phase = "charge";
+        }
+        else if (t < 3.7) { p = mix(POSE.raised, POSE.cast, 0.6); phase = "cast"; }
+        else if (t < 4.6) {
+          p = { ...POSE.cast };
+          if (t < 3.8) p.hx -= 1; // recoil
+          phase = "cast";
+        }
+        else if (t < 5.4) { p = mix(POSE.cast, POSE.idle, easeInOut((t - 4.6) / 0.8)); phase = "recover"; }
+        else { p = POSE.idle; phase = "idle"; }
+
+        const idle = phase === "idle";
+        const bob = idle ? Math.floor(t / 0.5) % 2 : 0;
+        let sway = [0, 1, 0, -1][Math.floor(t / 0.5) % 4];
+        if (phase === "cast") sway = -1;
+        if (phase === "charge") sway = Math.floor(t * 10) % 2 ? 1 : 0;
+        const beard = [0, 1, 1, 0, -1, -1][Math.floor(t / 0.2) % 6] + (phase === "cast" ? -1 : 0);
+        const hatWob = phase === "cast" && t < 4.0 ? -1 : 0;
+        return { ...p, head: R(p.head), hx: R(p.hx), hy: R(p.hy), bob, sway, beard, hatWob, phase };
+      }
+
+      function glowAt(tc) {
+        let g;
+        if (tc < 2.0) g = 0.14;
+        else if (tc < 3.6) g = lerp(0.14, 0.7, (tc - 2.0) / 1.6) + (Math.floor(tc * 15) % 2) * 0.08;
+        else if (tc < 3.7) g = 0.85;
+        else if (tc < 4.6) g = lerp(1.0, 0.14, easeOut((tc - 3.7) / 0.9));
+        else g = 0.14;
+        return g;
+      }
+
+      // ---------- background ----------
+      const STARS = [];
+      for (let i = 0; i < 60; i++) {
+        const x = Math.floor(hash(i) * W), y = Math.floor(hash(i + 100) * 82);
+        if (Math.abs(x - 54) < 11 && Math.abs(y - 20) < 11) continue;
+        STARS.push({ x, y, period: [1, 1.5, 2, 3][Math.floor(hash(i + 200) * 4)], phase: hash(i + 300), big: hash(i + 400) > 0.86 });
+      }
+      function hillY(x) { return R(GROUND - 7 + 3 * Math.sin(x * 0.11) + 2 * Math.sin(x * 0.23 + 1)); }
+
+      function drawBackground(tc, flash) {
+        const bands = flash
+          ? ["sky3", "m4", "m4", "m3"]
+          : ["sky0", "sky1", "sky2", "sky3"];
+        const edges = [0, 30, 58, 82, GROUND];
+        for (let b = 0; b < 4; b++) rect(ctx, 0, edges[b], W, edges[b + 1] - edges[b], bands[b]);
+        // checkerboard dithering at band edges (no gradients)
+        for (let b = 1; b < 4; b++) {
+          const y0 = edges[b];
+          for (let y = y0 - 1; y <= y0; y++)
+            for (let x = 0; x < W; x++)
+              if ((x + y) % 2 === 0) px(ctx, x, y, y < y0 ? bands[b] : bands[b - 1]);
+        }
+        // stars
+        for (const s of STARS) {
+          const on = ((tc / s.period + s.phase) % 1) < 0.7;
+          px(ctx, s.x, s.y, on ? "star" : "starDim");
+          if (s.big && on) {
+            px(ctx, s.x - 1, s.y, "starDim"); px(ctx, s.x + 1, s.y, "starDim");
+            px(ctx, s.x, s.y - 1, "starDim"); px(ctx, s.x, s.y + 1, "starDim");
+          }
+        }
+        // moon
+        const mx = 54, my = 20, mr = 7;
+        for (let dy = -mr; dy <= mr; dy++)
+          for (let dx = -mr; dx <= mr; dx++)
+            if (dx * dx + dy * dy <= mr * mr + mr * 0.8)
+              px(ctx, mx + dx, my + dy, dx - dy * 0.3 < -3 ? "moonShade" : "moon");
+        rect(ctx, mx + 1, my - 3, 2, 2, "moonShade");
+        px(ctx, mx + 3, my + 2, "moonShade");
+        px(ctx, mx - 1, my + 3, "moonShade");
+        // distant hills + a little tower
+        for (let x = 0; x < W; x++) rect(ctx, x, hillY(x), 1, GROUND - hillY(x), "hill");
+        rect(ctx, 60, 82, 7, 18, "hill");
+        rect(ctx, 59, 80, 9, 3, "hill");
+        for (let x = 59; x < 68; x += 2) px(ctx, x, 79, "hill");
+        px(ctx, 63, 86, "trim");
+        px(ctx, 63, 92, Math.floor(tc * 2) % 6 === 0 ? "hill" : "trim");
+        // stone floor
+        rect(ctx, 0, GROUND, W, H - GROUND, flash ? "stoneLight" : "stone");
+        rect(ctx, 0, GROUND, W, 1, "stoneLight");
+        for (let r = 0; r < 7; r++) {
+          const y = GROUND + 4 + r * 4;
+          rect(ctx, 0, y, W, 1, "stoneDark");
+          for (let x = (r % 2) * 6; x < W; x += 12) rect(ctx, x, y - 3, 1, 3, "stoneDark");
+        }
+      }
+
+      // ---------- wizard ----------
+      const OX = 22, OY = GROUND;
+      function gemPos(p) {
+        const sx = OX + p.hx, sy = OY + p.hy + p.bob;
+        return { x: R(sx + Math.sin(p.a) * 15), y: R(sy - Math.cos(p.a) * 15) };
+      }
+
+      function drawWizard(p, tc) {
+        const c = wctx;
+        c.clearRect(0, 0, W, H);
+        const bd = p.bob, ht = p.head;
+
+        // back arm
+        rect(c, OX - 6, OY - 16 + bd, 2, 5, "robeDark");
+        rect(c, OX - 6, OY - 11 + bd, 2, 1, "skinShade");
+
+        // robe: two-tone trapezoid that sways at the hem
+        for (let r = 0; r < 18; r++) {
+          const y = OY - 18 + r;
+          const hw = 4 + Math.floor((r * 4) / 17);
+          const off = R((p.sway * r) / 17);
+          const x0 = OX - hw + off, x1 = OX + hw + off;
+          const split = OX - 1 + off;
+          rect(c, x0, y, split - x0, 1, "robeDark");
+          rect(c, split, y, x1 - split, 1, "robe");
+          if (r === 17) rect(c, x0, y, x1 - x0, 1, "trim");
+        }
+        rect(c, OX - 5, OY - 11, 10, 1, "trim");            // belt
+        px(c, OX, OY - 11, "m1");                           // buckle gem
+        rect(c, OX - 4 + R(p.sway), OY - 1, 2, 1, "woodDark"); // boots
+        rect(c, OX + 2 + R(p.sway), OY - 1, 3, 1, "woodDark");
+
+        // head
+        const hx = OX - 2 + ht, hy = OY - 24 + bd;
+        rect(c, hx, hy, 5, 5, "skin");
+        rect(c, hx, hy, 1, 5, "skinShade");
+        px(c, hx + 5, hy + 2, "skin");                      // nose
+        px(c, hx + 3, hy + 1, "outline");                   // eye
+        px(c, hx + 3, hy, "beard");                         // brow
+
+        // beard, waving at the tip
+        for (let r = 0; r < 10; r++) {
+          const w = Math.max(1, 6 - Math.floor(r * 0.6));
+          const off = R((p.beard * r) / 9);
+          const bx = hx + 1 + off + Math.floor((6 - w) / 2);
+          rect(c, bx, hy + 3 + r, w, 1, "beard");
+          px(c, bx, hy + 3 + r, "beardShade");
+        }
+
+        // hat: brim, band, cone folding back at the tip
+        rect(c, hx - 4, hy - 1, 13, 1, "robeDark");
+        rect(c, hx - 3, hy - 2, 11, 1, "robeDark");
+        rect(c, hx - 1, hy - 3, 7, 1, "trim");
+        for (let k = 0; k < 10; k++) {
+          const w = Math.max(1, 7 - Math.floor((k * 6) / 9));
+          let off = -Math.floor((k * k) / 30) + (k >= 7 ? -(k - 6) : 0);
+          if (k >= 5) off += p.hatWob;
+          const cx = hx - 1 + Math.floor((7 - w) / 2) + off;
+          rect(c, cx, hy - 4 - k, w, 1, "robeDark");
+          if (w > 2) px(c, cx + w - 1, hy - 4 - k, "robe");
+        }
+        px(c, hx - 1 - 4 + p.hatWob, hy - 14, "m2");          // star on the tip
+
+        // staff (behind the hand)
+        const sx = OX + p.hx, sy = OY + p.hy + bd;
+        const dx = Math.sin(p.a), dy = -Math.cos(p.a);
+        line(c, sx - dx * 9, sy - dy * 9, sx + dx * 13, sy + dy * 13, "wood");
+        line(c, sx - dx * 9, sy - dy * 9, sx - dx * 6, sy - dy * 6, "woodDark");
+        const g = gemPos(p);
+        const flick = p.phase === "charge" ? Math.floor(tc * 15) % 2 : 0;
+        const core = p.phase === "cast" ? "m0" : flick ? "m0" : "m1";
+        const arm = p.phase === "idle" || p.phase === "recover" ? "m3" : "m2";
+        px(c, g.x - 1, g.y, arm); px(c, g.x + 1, g.y, arm);
+        px(c, g.x, g.y - 1, arm); px(c, g.x, g.y + 1, arm);
+        px(c, g.x, g.y, core);
+
+        // front sleeve + hand
+        line(c, OX + 2, OY - 17 + bd, sx - 1, sy - 1, "robe", 2);
+        px(c, sx - 1, sy, "trim");
+        rect(c, sx, sy - 1, 2, 2, "skin");
+      }
+
+      // dark outline + gem rim light, computed on the wizard's pixels
+      const N4 = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+      function finishWizard(g, glow) {
+        const img = wctx.getImageData(0, 0, W, H);
+        const d = img.data;
+        const solid = new Uint8Array(W * H);
+        for (let i = 0; i < W * H; i++) solid[i] = d[i * 4 + 3] > 0 ? 1 : 0;
+        const outline = new Uint8Array(W * H);
+        for (let y = 0; y < H; y++)
+          for (let x = 0; x < W; x++) {
+            const i = y * W + x;
+            if (solid[i]) continue;
+            for (const [ax, ay] of N4) {
+              const nx = x + ax, ny = y + ay;
+              if (nx >= 0 && ny >= 0 && nx < W && ny < H && solid[ny * W + nx]) { outline[i] = 1; break; }
+            }
+          }
+        const reach = glow * 40;
+        const put = (i, col) => {
+          const [r, gg, b] = RGB[col];
+          d[i * 4] = r; d[i * 4 + 1] = gg; d[i * 4 + 2] = b; d[i * 4 + 3] = 255;
+        };
+        for (let y = 0; y < H; y++)
+          for (let x = 0; x < W; x++) {
+            const i = y * W + x;
+            if (outline[i]) { put(i, "outline"); continue; }
+            if (solid[i] || reach < 2) continue;
+            let nearOutline = false;
+            for (const [ax, ay] of N4) {
+              const nx = x + ax, ny = y + ay;
+              if (nx >= 0 && ny >= 0 && nx < W && ny < H && outline[ny * W + nx]) { nearOutline = true; break; }
+            }
+            if (!nearOutline) continue;
+            const dist = Math.hypot(x - g.x, y - g.y);
+            if (dist > reach) continue;
+            const q = dist / reach;
+            put(i, q < 0.3 ? "m1" : q < 0.65 ? "m2" : "m4");
+          }
+        wctx.putImageData(img, 0, 0);
+      }
+
+      // ---------- magic ----------
+      function drawMagic(p, tc) {
+        const g = gemPos(p);
+
+        // idle motes orbiting the gem (period 3s divides the cycle)
+        if (p.phase === "idle" || p.phase === "recover") {
+          for (let i = 0; i < 3; i++) {
+            const a = (tc * 2 * Math.PI) / 3 + (i * 2 * Math.PI) / 3;
+            px(ctx, g.x + R(Math.cos(a) * 4), g.y + R(Math.sin(a) * 3), i === 0 ? "m2" : "m3");
+          }
+        }
+
+        // charge: sparks spiral inward
+        for (let i = 0; i < 28; i++) {
+          const s = 2.05 + (i / 28) * 1.35, life = 0.55;
+          const q = (tc - s) / life;
+          if (q < 0 || q >= 1) continue;
+          const r = 2 + 15 * Math.pow(1 - q, 1.2);
+          const a = hash(i + 7) * Math.PI * 2 + q * Math.PI * 3;
+          px(ctx, g.x + R(Math.cos(a) * r), g.y + R(Math.sin(a) * r * 0.8), lifeColor(q));
+        }
+
+        // cast: ring of light
+        if (tc >= 3.7 && tc < 4.05) {
+          const age = tc - 3.7;
+          ring(ctx, g.x, g.y, 2 + age * 70, age < 0.08 ? "m0" : age < 0.18 ? "m1" : age < 0.27 ? "m2" : "m3");
+          if (age > 0.06) ring(ctx, g.x, g.y, 1 + (age - 0.06) * 45, "m4");
+        }
+
+        // cast: outward burst with drag + gravity
+        for (let j = 0; j < 36; j++) {
+          const s = 3.7 + hash(j + 50) * 0.08;
+          const life = 0.45 + hash(j + 80) * 0.4;
+          const q = (tc - s) / life;
+          if (q < 0 || q >= 1) continue;
+          const dir = hash(j + 20) * Math.PI * 2;
+          const speed = 40 + hash(j + 30) * 60;
+          const dist = speed * life * (1 - (1 - q) * (1 - q)) * 0.5;
+          const tau = tc - s;
+          const x = g.x + Math.cos(dir) * dist, y = g.y + Math.sin(dir) * dist + 22 * tau * tau;
+          rect(ctx, x, y, q < 0.18 ? 2 : 1, q < 0.18 ? 2 : 1, lifeColor(q));
+        }
+
+        // projectile with trail
+        if (tc >= 3.72 && tc < 4.5) {
+          const tau = tc - 3.72;
+          const x = g.x + 3 + tau * 110, y = g.y;
+          const trail = ["m1", "m1", "m2", "m2", "m3", "m3", "m4"];
+          for (let k = trail.length; k >= 1; k--) {
+            const tx = x - k * 3, ty = y + R(Math.sin(tau * 40 + k) * (k > 3 ? 1 : 0));
+            if (tx > g.x) px(ctx, tx, ty, trail[k - 1]);
+          }
+          rect(ctx, x - 2, y - 1, 4, 3, "m2");
+          rect(ctx, x - 1, y - 1, 3, 3, "m1");
+          px(ctx, x, y, "m0"); px(ctx, x + 1, y, "m0");
+          px(ctx, x + 2 + (Math.floor(tc * 30) % 2), y, "m1");
+        }
+      }
+
+      // ---------- frame ----------
+      const SHAKE = [[2, 0], [-1, 1], [1, -1], [-2, 0], [1, 1], [0, -1], [1, 0], [-1, 0]];
+      function draw(t) {
+        const tc = ((t % CYCLE) + CYCLE) % CYCLE;
+        const p = poseAt(tc);
+        const flash = tc >= 3.7 && tc < 3.77;
+
+        drawBackground(tc, flash);
+        drawWizard(p, tc);
+        finishWizard(gemPos(p), glowAt(tc));
+        ctx.drawImage(wz, 0, 0);
+        drawMagic(p, tc);
+
+        let sx = 0, sy = 0;
+        if (tc >= 3.7 && tc < 3.95) [sx, sy] = SHAKE[Math.floor((tc - 3.7) * 30) % SHAKE.length];
+        sctx.fillStyle = HEX.outline;
+        sctx.fillRect(0, 0, 1080, 1920);
+        sctx.imageSmoothingEnabled = false;
+        sctx.drawImage(lo, sx * SCALE, sy * SCALE, W * SCALE, H * SCALE);
+      }
+
+      // ---------- timeline ----------
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const clock = { t: 0 };
+      tl.to(clock, {
+        t: 12,
+        duration: 12,
+        ease: "none",
+        onUpdate: function () { draw(tl.time()); },
+      }, 0);
+      window.__timelines["main"] = tl;
+      window.addEventListener("hf-seek", (e) => draw(e.detail.time));
+      draw(0);
+      tl.seek(0);
+    </script>
+  </body>
+</html>
