@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>RSPOND UI</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Geist";
+        src: url("assets/Geist-Variable.ttf") format("truetype");
+        font-weight: 100 900;
+      }
+      @font-face {
+        font-family: "Geist Mono";
+        src: url("assets/GeistMono-Variable.ttf") format("truetype");
+        font-weight: 100 900;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #eceee8;
+        font-family: "Geist", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+      #stage { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+      #bg { position: absolute; inset: 0; background: #eceee8; }
+      #world { position: absolute; left: 540px; top: 960px; width: 0; height: 0; }
+      #shape {
+        position: absolute;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        box-shadow: 0 24px 60px rgba(17, 17, 17, 0.1), 0 2px 6px rgba(17, 17, 17, 0.06);
+      }
+      #inner { position: absolute; width: 0; height: 0; }
+      .layer { position: absolute; left: 0; top: 0; width: 0; height: 0; }
+      .abs { position: absolute; left: 0; top: 0; white-space: nowrap; }
+      .t-btn { font-size: 40px; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
+      .t-title { font-size: 40px; font-weight: 600; color: #fff; letter-spacing: -0.02em; }
+      .t-sub { font-size: 28px; font-weight: 450; color: #a5a39d; }
+      .t-mono { font-family: "Geist Mono", monospace; font-size: 24px; color: #a5a39d; font-variant-numeric: tabular-nums; }
+      .t-tab { font-size: 32px; font-weight: 550; letter-spacing: -0.01em; }
+      .t-ink { font-size: 34px; font-weight: 600; color: #111; letter-spacing: -0.02em; }
+      .t-row { font-size: 32px; font-weight: 500; color: #111; }
+      #brand { position: absolute; left: 0; top: 150px; width: 1080px; text-align: center; }
+      #cursor { position: absolute; left: 0; top: 0; width: 44px; height: 56px; transform-origin: 0 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="16" data-width="1080" data-height="1920">
+      <div id="stage" class="clip" data-start="0" data-duration="16" data-track-index="0">
+        <div id="bg"></div>
+        <div id="brand">
+          <div style="font-size:44px;font-weight:700;letter-spacing:0.22em;color:#0f1a14">RSPOND</div>
+          <div style="margin-top:10px;font-size:26px;font-weight:450;color:#5d6660">Respuesta inteligente para RSPO</div>
+        </div>
+        <div id="world">
+          <div id="shape">
+            <div id="inner">
+              <!-- button -->
+              <div class="layer" id="L-button">
+                <div class="abs t-btn" id="btn-label">Empezar auditoría&nbsp;&nbsp;→</div>
+              </div>
+              <!-- loader -->
+              <div class="layer" id="L-loader">
+                <svg class="abs" id="loader-svg" width="96" height="96" viewBox="0 0 96 96" style="left:-48px;top:-48px">
+                  <circle cx="48" cy="48" r="34" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="10" />
+                  <circle cx="48" cy="48" r="34" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-dasharray="60 400" />
+                </svg>
+              </div>
+              <!-- check -->
+              <div class="layer" id="L-check">
+                <svg class="abs" width="96" height="96" viewBox="0 0 96 96" style="left:-48px;top:-48px">
+                  <path id="check-path" d="M24 50 L41 66 L73 32" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="80" stroke-dashoffset="80" />
+                </svg>
+              </div>
+              <!-- island -->
+              <div class="layer" id="L-island">
+                <div class="abs" id="island-dot" style="width:22px;height:22px;border-radius:11px;background:#1f9d55;left:-196px;top:-11px"></div>
+                <div class="abs" style="left:-158px;top:-20px;font-size:32px;font-weight:550;color:#fff">Estándar cargado</div>
+                <div class="abs" id="island-bars" style="left:150px;top:-20px;width:70px;height:40px"></div>
+              </div>
+              <!-- chat (AI over RSPO standards) -->
+              <div class="layer" id="L-chat">
+                <div class="abs" style="left:-340px;top:-196px;width:72px;height:72px;border-radius:20px;background:#1f9d55;color:#0f1a14;font-size:40px;font-weight:700;line-height:72px;text-align:center">R</div>
+                <div class="abs" style="left:-248px;top:-194px;font-size:34px;font-weight:600;color:#fff;letter-spacing:-0.02em">Asistente RSPOND</div>
+                <div class="abs" style="left:-248px;top:-150px;font-size:24px;color:#9aa59e">Norma RSPO P&amp;C 2018</div>
+                <div class="abs" id="chat-q" style="padding:12px 20px;border-radius:22px 22px 6px 22px;background:#26362d;color:#fff;font-size:26px;font-weight:500">¿Qué exige el criterio 7.2?</div>
+                <div class="abs chat-line" id="chat-a0" style="left:-340px;top:-18px;font-size:27px;color:#e9eee9">Manejo seguro de agroquímicos,</div>
+                <div class="abs chat-line" id="chat-a1" style="left:-340px;top:22px;font-size:27px;color:#e9eee9">registro de uso y capacitación.</div>
+                <div class="abs" id="chat-chip" style="left:-340px;top:78px;height:52px;padding:0 22px;border-radius:26px;background:#1f9d55;color:#0f1a14;font-size:24px;font-weight:650;line-height:52px">Crear NC&nbsp;&nbsp;→</div>
+                <div class="abs" style="left:-340px;top:150px;width:600px;height:60px;border-radius:30px;background:#1c2822"></div>
+                <div class="abs" id="chat-input" style="left:-312px;top:150px;height:60px;line-height:60px;font-size:24px;color:#fff"></div>
+                <div class="abs" id="send-btn" style="left:276px;top:150px;width:60px;height:60px;border-radius:30px;background:#fff">
+                  <svg width="60" height="60" viewBox="0 0 60 60"><path d="M30 42 V19 M20 28 L30 18 L40 28" fill="none" stroke="#0f1a14" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </div>
+              </div>
+              <!-- severity slider -->
+              <div class="layer" id="L-volume">
+                <div class="abs" id="sev-label" style="left:-344px;top:-20px;font-size:30px;font-weight:650;letter-spacing:-0.01em">Menor</div>
+                <div class="abs" id="vol-track" style="left:-190px;top:-6px;height:12px;border-radius:6px;background:#d8ddd5"></div>
+                <div class="abs" id="vol-fill" style="left:-190px;top:-6px;height:12px;border-radius:6px;background:#0f1a14"></div>
+                <div class="abs" id="vol-knob" style="left:0;top:0;width:44px;height:44px;border-radius:22px;background:#0f1a14"></div>
+              </div>
+              <!-- toggle knob / tab indicator (shared element) -->
+              <div class="layer" id="L-knob">
+                <div class="abs" id="knob"></div>
+              </div>
+              <!-- tabs -->
+              <div class="layer" id="L-tabs">
+                <div class="abs t-tab" id="tab0">Abiertas</div>
+                <div class="abs t-tab" id="tab1">En curso</div>
+                <div class="abs t-tab" id="tab2">Cerradas</div>
+              </div>
+              <!-- chart -->
+              <div class="layer" id="L-chart">
+                <div class="abs t-ink" style="left:-330px;top:-270px">NC cerradas</div>
+                <div class="abs" style="left:-330px;top:-222px;font-size:26px;color:#6b6964">No conformidades por semana</div>
+                <div class="abs" style="left:170px;top:-266px;font-size:34px;font-weight:600;color:#157a40;font-variant-numeric:tabular-nums">+38%</div>
+                <svg class="abs" width="680" height="400" viewBox="0 0 680 400" style="left:-340px;top:-150px;overflow:visible">
+                  <g stroke="#e3e1dc" stroke-width="2">
+                    <line x1="0" y1="40" x2="680" y2="40" /><line x1="0" y1="140" x2="680" y2="140" />
+                    <line x1="0" y1="240" x2="680" y2="240" /><line x1="0" y1="340" x2="680" y2="340" />
+                  </g>
+                  <polygon id="chart-area" fill="#f1efea" />
+                  <polyline id="chart-line" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+                  <line id="chart-guide" stroke="#111" stroke-width="2" stroke-dasharray="6 8" />
+                  <circle id="chart-dot" r="12" fill="#1f9d55" stroke="#fff" stroke-width="5" />
+                </svg>
+                <div class="abs" id="tooltip" style="padding:14px 22px;border-radius:18px;background:#111;color:#fff;font-size:26px;font-weight:550">
+                  Sem 9 · <span style="font-variant-numeric:tabular-nums">14 NC</span>
+                </div>
+              </div>
+              <!-- command palette -->
+              <div class="layer" id="L-palette">
+                <div class="abs" style="left:-336px;top:30px;padding:8px 14px;border-radius:12px;border:2px solid #dddbd5;font-family:'Geist Mono',monospace;font-size:24px;color:#111">⌘K</div>
+                <div class="abs" id="pal-query" style="left:-240px;top:30px;font-size:36px;font-weight:500;color:#111;height:52px;line-height:52px"></div>
+                <div class="abs" id="pal-caret" style="top:34px;width:3px;height:44px;background:#1f9d55"></div>
+                <div class="abs" style="left:-380px;top:112px;width:760px;height:2px;background:#e3e1dc"></div>
+                <div class="abs" id="pal-hl" style="left:-364px;width:728px;height:64px;border-radius:16px;background:#efeeea"></div>
+                <div class="abs pal-row" id="row0"><span class="t-row">Nueva NC</span></div>
+                <div class="abs pal-row" id="row1"><span class="t-row">Exportar a Word</span></div>
+                <div class="abs pal-row" id="row2"><span class="t-row">Chat con la norma</span></div>
+                <div class="abs pal-row" id="row3"><span class="t-row">Exportar informe PDF</span></div>
+                <div class="abs pal-row" id="row4"><span class="t-row">Estándares RSPO</span></div>
+              </div>
+              <!-- closing URL -->
+              <div class="layer" id="L-url">
+                <div class="abs" style="left:-262px;top:-14px;width:28px;height:28px;border-radius:14px;background:#1f9d55"></div>
+                <div class="abs" style="left:-212px;top:-44px;font-size:72px;font-weight:650;color:#fff;letter-spacing:-0.03em;line-height:88px">rspond.app</div>
+                <div class="abs" style="left:192px;top:-44px;font-size:64px;font-weight:500;color:#1f9d55;line-height:88px">↗</div>
+              </div>
+              <!-- notification -->
+              <div class="layer" id="L-notif">
+                <div class="abs" style="left:-336px;top:-44px;width:88px;height:88px;border-radius:44px;background:#1f9d55">
+                  <svg width="88" height="88" viewBox="0 0 88 88">
+                    <path d="M30 20 H50 L60 30 V68 H30 Z" fill="#fff" />
+                    <path d="M37 47 L43 53 L53 41" fill="none" stroke="#1f9d55" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="abs" style="left:-222px;top:-44px;font-size:36px;font-weight:600;color:#fff;letter-spacing:-0.02em">Informe exportado</div>
+                <div class="abs" style="left:-222px;top:6px;font-size:28px;color:#a5a39d">nc_septiembre.docx · ahora</div>
+              </div>
+            </div>
+          </div>
+          <svg id="cursor" viewBox="0 0 44 56">
+            <path d="M3 3 L3 44 L13 34 L20 51 L28 47.5 L21 31 L35 31 Z" fill="#111" stroke="#fff" stroke-width="3" stroke-linejoin="round" />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <script>
+      (() => {
+      // ---------------- math ----------------
+      const BEAT = 0.5, b = (n) => n * BEAT;
+      const clamp01 = (v) => Math.max(0, Math.min(1, v));
+      const lerp = (a, c, p) => a + (c - a) * p;
+      const smooth = (p) => { p = clamp01(p); return p * p * (3 - 2 * p); };
+      const easeInOut = (p) => { p = clamp01(p); return p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; };
+
+      // Closed-form damped spring step response (0 -> 1), small overshoot.
+      function spring(tau, f = 2.4, z = 0.72) {
+        if (tau <= 0) return 0;
+        const w = 2 * Math.PI * f, wd = w * Math.sqrt(1 - z * z);
+        return 1 - Math.exp(-z * w * tau) * (Math.cos(wd * tau) + ((z * w) / wd) * Math.sin(wd * tau));
+      }
+      // Superpose one spring per target change -> value depends only on t.
+      // keys: [[time, value, f?, z?], ...]; first entry is the initial value.
+      function track(keys, t, f, z) {
+        let v = keys[0][1];
+        for (let i = 1; i < keys.length; i++) {
+          const k = keys[i];
+          v += (k[1] - keys[i - 1][1]) * spring(t - k[0], k[2] || f, k[3] || z);
+        }
+        return v;
+      }
+      // Smooth keyframe path (zero velocity at each key).
+      function path(keys, t) {
+        if (t <= keys[0][0]) return keys[0].slice(1);
+        for (let i = 1; i < keys.length; i++) {
+          if (t <= keys[i][0]) {
+            const a = keys[i - 1], c = keys[i];
+            const p = easeInOut((t - a[0]) / (c[0] - a[0]));
+            return a.slice(1).map((v, j) => lerp(v, c[j + 1], p));
+          }
+        }
+        return keys[keys.length - 1].slice(1);
+      }
+      // content visibility with short blur in/out
+      function vis(t, a, c) {
+        let o = 1;
+        if (a !== null) o = Math.min(o, clamp01((t - a - 0.04) / 0.16));
+        if (c !== null) o = Math.min(o, clamp01((c - t) / 0.12));
+        return o;
+      }
+      function show(el, o, dy = 0) {
+        el.style.opacity = o.toFixed(3);
+        el.style.filter = o < 0.999 ? `blur(${((1 - o) * 10).toFixed(2)}px)` : "none";
+        el.style.transform = `translate(0px, ${((1 - o) * dy).toFixed(2)}px)`;
+      }
+      const hex = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+      const C = { white: hex("#ffffff"), ink: hex("#0f1a14"), grey: hex("#d3d8d0"), acc: hex("#1f9d55") };
+      const mixc = (a, c, p) => a.map((v, i) => lerp(v, c[i], p));
+      const css = (c) => `rgb(${c.map((v) => Math.round(v)).join(",")})`;
+      const $ = (id) => document.getElementById(id);
+
+      // ---------------- beat sheet ----------------
+      // 120 BPM, 28 beats (7 bars), one action per beat.
+      const S = {
+        w: [[0, 470], [b(2), 140], [b(5), 480], [b(6), 760], [b(11), 760], [b(14), 260], [b(17), 760], [b(27), 660]],
+        h: [[0, 112], [b(2), 140], [b(5), 110], [b(6), 440], [b(11), 120], [b(14), 140], [b(17), 120], [b(20), 620], [b(22), 496],
+            [11.5, 352], [11.65, 280], [b(25), 170], [b(27), 160]],
+        r: [[0, 56], [b(2), 70], [b(5), 55], [b(6), 48], [b(11), 60], [b(14), 70], [b(17), 60], [b(20), 44], [b(22), 36], [b(25), 44], [b(27), 80]],
+        ink: [[0, 1], [b(11), 0], [b(25), 1], [b(27), 1]],
+        acc: [[0, 0], [b(4), 1], [b(5), 0], [b(15), 1], [b(17), 0]],
+        grey: [[0, 0], [b(14), 1], [b(17), 0]],
+        cam: [[0, 1.75], [b(2), 2.6], [b(5), 1.75], [b(6), 1.25], [b(11), 1.08], [b(14), 2.3], [b(17), 1.22], [b(20), 1.25], [b(22), 1.25],
+              [11.8, 1.32], [b(25), 1.25], [b(27), 1.42]],
+      };
+      // press impulses on the shape (spring in, spring out)
+      const PRESS = [b(1), b(15), b(29)];
+
+      // cursor path: [t, x, y] in world coords (0,0 = shape centre)
+      const PLAYER = { trackX: -340, trackW: 680, trackY: 120 };
+      const VOL = { x0: -190, w: 520, v0: 0.3 };
+      function progAt(t) { // player progress 0..1 (not during drag)
+        if (t < b(7)) return 0.3;
+        return 0.3 + (t - b(7)) * 0.03;
+      }
+      const KNOB_AT_PRESS = PLAYER.trackX + PLAYER.trackW * progAt(b(9));
+      const CURSOR = [
+        [0, 280, 250], [0.42, 150, 26], [0.6, 150, 26], [1.05, 170, 150], [3.0, 230, 150], [3.4, 312, 186], [3.6, 312, 186],
+        [4.36, -250, 112], [b(9), -250, 112], [b(10), -250, 112],
+        [5.1, -250, 112], [5.88, VOL.x0 + VOL.w * VOL.v0, 4], [b(12), VOL.x0 + VOL.w * VOL.v0, 4],
+        [6.42, 480, 4], [b(13), 480, 4], [7.3, 46, 26], [8.2, 46, 26], [8.86, 6, 18], [9.05, 6, 18], [9.36, 248, 18],
+        [9.7, 248, 18], [10.44, 0, 0], [10.9, 0, 0], [11.3, 300, 300], [13.4, 300, 300], [14.3, 190, 40], [16.0, 190, 40],
+      ];
+      const CLICKS = [[b(1), 0.12], [b(7), 0.12], [b(9), 0.12], [b(12), b(13) - b(12)], [b(15), 0.12], [b(18), 0.12], [b(19), 0.12], [b(29), 0.12]];
+
+      // chart data
+      const CH = [210, 236, 198, 250, 232, 276, 262, 300, 334, 312, 350, 368];
+      const chartPts = CH.map((v, i) => [i * (680 / 11), 380 - v]);
+      const HOVER = 8;
+      CURSOR[22][1] = -340 + chartPts[HOVER][0] + 6; // hover target in world coords
+      CURSOR[22][2] = -150 + chartPts[HOVER][1] + 4;
+      CURSOR[21][1] = CURSOR[22][1]; CURSOR[21][2] = CURSOR[22][2];
+
+      // palette typing
+      const TYPE = [[11.5, "e"], [11.65, "ex"], [11.8, "exp"]];
+      const ROWS = ["New file", "Notifications", "Note", "Share link", "Settings"];
+      const ROW_GONE = [11.5, 99, 11.5, 99, 11.65]; // time each row is filtered out
+
+      // tab indicator edges: two springs (leading edge fast, trailing slow)
+      const TAB_EDGES = [[-360, -130], [-115, 115], [130, 360]];
+      const TOG_OFF = [-116, -4], TOG_ON = [4, 116];
+      const FAST = [3.4, 0.78], SLOW = [1.9, 0.7];
+      function edgeKeys(seq, side) {
+        // seq: [[t, [L,R]], ...]; leading edge per move gets the fast spring
+        const keys = [[0, seq[0][1][side]]];
+        for (let i = 1; i < seq.length; i++) {
+          const dir = Math.sign(seq[i][1][0] - seq[i - 1][1][0]);
+          const leading = (dir > 0 && side === 1) || (dir < 0 && side === 0);
+          const sp = leading ? FAST : SLOW;
+          keys.push([seq[i][0], seq[i][1][side], sp[0], sp[1]]);
+        }
+        return keys;
+      }
+      const KNOB_SEQ = [[0, TOG_OFF], [b(15), TOG_ON], [b(17), TAB_EDGES[0]], [b(18), TAB_EDGES[1]], [b(19), TAB_EDGES[2]]];
+      const KL = edgeKeys(KNOB_SEQ, 0), KR = edgeKeys(KNOB_SEQ, 1);
+
+      // ---------------- per-frame ----------------
+      const el = {};
+      ["shape", "inner", "world", "cursor", "L-button", "L-loader", "L-check", "L-island", "L-chat", "L-volume", "L-knob", "L-tabs", "L-chart",
+       "L-palette", "L-notif", "L-url", "loader-svg", "check-path", "island-dot", "island-bars", "chat-q", "chat-a0", "chat-a1", "chat-chip", "chat-input", "send-btn",
+       "sev-label", "vol-fill", "vol-track", "vol-knob", "knob", "tab0", "tab1", "tab2", "chart-area", "chart-line",
+       "chart-guide", "chart-dot", "tooltip", "pal-query", "pal-caret", "pal-hl", "row0", "row1", "row2", "row3", "row4"].forEach((k) => (el[k] = $(k)));
+      // island waveform bars
+      for (let i = 0; i < 5; i++) {
+        const d = document.createElement("div");
+        d.style.cssText = `position:absolute;left:${i * 14}px;width:8px;border-radius:4px;background:#fff`;
+        el["island-bars"].appendChild(d);
+      }
+      // palette row icons
+      for (let i = 0; i < 5; i++) {
+        const ic = document.createElement("div");
+        ic.style.cssText = "position:absolute;left:-52px;top:2px;width:34px;height:34px;border-radius:10px;border:3px solid #111";
+        el["row" + i].style.paddingLeft = "0px";
+        el["row" + i].prepend(ic);
+      }
+      const chartLen = chartPts.reduce((s, p, i) => (i ? s + Math.hypot(p[0] - chartPts[i - 1][0], p[1] - chartPts[i - 1][1]) : 0), 0);
+      el["chart-line"].setAttribute("points", chartPts.map((p) => p.join(",")).join(" "));
+      el["chart-area"].setAttribute("points", chartPts.map((p) => p.join(",")).join(" ") + " 680,380 0,380");
+      el["chart-line"].style.strokeDasharray = `${chartLen}`;
+
+      const measure = document.createElement("canvas").getContext("2d");
+      measure.font = '500 36px "Geist"';
+      function cursorPressed(t) {
+        let p = 0;
+        for (const [s, d] of CLICKS) p = Math.max(p, t >= s - 0.04 && t < s + d ? 1 : 0);
+        return p;
+      }
+      function pressAmount(t) { // smoothed press for the cursor scale
+        let v = 0;
+        for (const [s, d] of CLICKS) v += spring(t - (s - 0.04), 5, 0.8) - spring(t - (s + d), 4, 0.6);
+        return v;
+      }
+
+      function seek(t) {
+        // ----- shape -----
+        const cam = track(S.cam, t);
+        let w = track(S.w, t), h = track(S.h, t), r = track(S.r, t);
+        let col = mixc(C.white, C.grey, clamp01(track(S.grey, t)));
+        col = mixc(col, C.ink, clamp01(track(S.ink, t)));
+        col = mixc(col, C.acc, clamp01(track(S.acc, t)));
+
+        // shape press impulse
+        let press = 0;
+        for (const s of PRESS) press += spring(t - s, 5, 0.8) - spring(t - s - 0.12, 3.2, 0.6);
+
+        // volume drag + rubber-band overshoot
+        const [cx, cy] = path(CURSOR, t);
+        let vol = VOL.v0, stretch = 0;
+        if (t >= b(12)) {
+          const raw = t < b(13) ? (cx - VOL.x0) / VOL.w : (path(CURSOR, b(13))[0] - VOL.x0) / VOL.w;
+          const rawNow = (cx - VOL.x0) / VOL.w;
+          const over = (r) => Math.max(0, r - 1) * VOL.w * 0.32;
+          if (t < b(13)) { vol = clamp01(rawNow); stretch = over(rawNow); }
+          else { vol = 1; stretch = over(raw) * (1 - spring(t - b(13), 2.6, 0.55)); }
+        }
+        w += stretch;
+        const scale = 1 - 0.05 * press;
+        el.world.style.transform = `scale(${cam.toFixed(4)})`;
+        el.shape.style.width = `${w}px`;
+        el.shape.style.height = `${h}px`;
+        el.shape.style.borderRadius = `${Math.max(0, r)}px`;
+        el.shape.style.background = css(col);
+        el.shape.style.transform = `translate(${(-w / 2 + stretch / 2).toFixed(2)}px, ${(-h / 2).toFixed(2)}px) scale(${scale.toFixed(4)})`;
+        el.shape.style.transformOrigin = `${w / 2}px ${h / 2}px`;
+        el.inner.style.left = `${(w - stretch) / 2}px`;
+        el.inner.style.top = `${h / 2}px`;
+
+        // ----- button -----
+        show(el["L-button"], vis(t, null, b(2)), 16);
+        show(el["L-url"], vis(t, b(27), null), 16);
+        el["L-button"].querySelector("#btn-label").style.transform = "translate(-50%, -50%)";
+
+        // ----- loader -----
+        show(el["L-loader"], vis(t, b(2), b(4)));
+        el["loader-svg"].style.transform = `rotate(${(t * 540) % 360}deg)`;
+
+        // ----- check -----
+        show(el["L-check"], vis(t, b(4), b(5)));
+        el["check-path"].setAttribute("stroke-dashoffset", (80 * (1 - easeInOut((t - b(4) - 0.06) / 0.26))).toFixed(2));
+
+        // ----- island -----
+        show(el["L-island"], vis(t, b(5), b(6)));
+        el["island-dot"].style.transform = `scale(${(1 + 0.18 * Math.max(0, Math.sin(t * Math.PI * 4))).toFixed(3)})`;
+        [...el["island-bars"].children].forEach((d, i) => {
+          const hh = 12 + 26 * Math.abs(Math.sin(t * 9 + i * 1.3));
+          d.style.height = `${hh}px`;
+          d.style.top = `${20 - hh / 2}px`;
+        });
+
+        // ----- chat -----
+        show(el["L-chat"], vis(t, b(6), b(11)), 20);
+        const sent = clamp01(spring(t - b(7), 3, 0.75));
+        el["send-btn"].style.transform = `scale(${(1 - 0.1 * (spring(t - b(7), 5, 0.8) - spring(t - b(7) - 0.12, 3.2, 0.6))).toFixed(4)})`;
+        el["chat-input"].textContent = t < b(7) ? "¿Qué exige el criterio 7.2?" : "Pregunta sobre la norma…";
+        el["chat-input"].style.color = t < b(7) ? "#ffffff" : "#7f8a83";
+        el["chat-q"].style.opacity = sent.toFixed(3);
+        el["chat-q"].style.transform = `translate(calc(340px - 100%), ${(-104 + (1 - sent) * 220).toFixed(2)}px) scale(${(0.9 + 0.1 * sent).toFixed(3)})`;
+        [0, 1].forEach((i) => {
+          const r = clamp01((t - b(7) - 0.3 - i * 0.35) / 0.45);
+          el["chat-a" + i].style.clipPath = `inset(0 ${((1 - r) * 100).toFixed(2)}% 0 0)`;
+        });
+        const chipIn = clamp01(spring(t - b(8) - 0.2, 3, 0.7));
+        const chipDone = t >= b(9) + 0.08;
+        el["chat-chip"].innerHTML = chipDone ? "✓&nbsp;&nbsp;NC-0142 creada" : "Crear NC&nbsp;&nbsp;→";
+        el["chat-chip"].style.background = chipDone ? "#ffffff" : "#1f9d55";
+        el["chat-chip"].style.opacity = chipIn.toFixed(3);
+        const chipPress = spring(t - b(9), 5, 0.8) - spring(t - b(9) - 0.12, 3.2, 0.6);
+        el["chat-chip"].style.transform = `translate(0px, ${((1 - chipIn) * 16).toFixed(2)}px) scale(${(1 - 0.08 * chipPress).toFixed(4)})`;
+
+        // ----- severity -----
+        show(el["L-volume"], vis(t, b(11), b(14)), 16);
+        el["vol-track"].style.width = `${VOL.w + stretch}px`;
+        el["vol-fill"].style.width = `${VOL.w * vol + (vol >= 1 ? stretch : 0)}px`;
+        const vk = VOL.x0 + VOL.w * vol + (vol >= 1 ? stretch : 0);
+        const vkScale = 1 + 0.3 * (spring(t - b(12), 4, 0.7) - spring(t - b(13), 3, 0.45));
+        el["vol-knob"].style.transform = `translate(${vk - 22}px, -22px) scale(${vkScale.toFixed(3)})`;
+        const major = vol >= 0.67;
+        el["sev-label"].textContent = vol < 0.34 ? "Menor" : major ? "Mayor" : "Media";
+        el["sev-label"].style.color = major ? "#157a40" : "#0f1a14";
+        el["vol-fill"].style.background = major ? "#1f9d55" : "#0f1a14";
+        el["vol-knob"].style.background = major ? "#1f9d55" : "#0f1a14";
+
+        // ----- toggle knob -> tab indicator -----
+        const L = track(KL, t), R = track(KR, t);
+        const kh = track([[0, 112], [b(17), 88]], t), kTab = clamp01(track([[0, 0], [b(17), 1]], t));
+        const kn = el.knob;
+        kn.style.width = `${R - L}px`;
+        kn.style.height = `${kh}px`;
+        kn.style.borderRadius = `${kh / 2}px`;
+        kn.style.background = css(mixc(C.white, C.ink, kTab));
+        kn.style.boxShadow = kTab < 0.5 ? "0 4px 10px rgba(17,17,17,0.18)" : "none";
+        kn.style.transform = `translate(${L}px, ${-kh / 2}px)`;
+        show(el["L-knob"], vis(t, b(14), b(20)));
+
+        // ----- tabs -----
+        show(el["L-tabs"], vis(t, b(17), b(20)));
+        ["tab0", "tab1", "tab2"].forEach((id, i) => {
+          const c = (TAB_EDGES[i][0] + TAB_EDGES[i][1]) / 2;
+          const inside = clamp01(Math.min(c - L, R - c) / 40);
+          const e = el[id];
+          e.style.color = css(mixc(hex("#6b6964"), C.white, inside));
+          e.style.transform = `translate(calc(${c}px - 50%), -50%)`;
+        });
+
+        // ----- chart -----
+        show(el["L-chart"], vis(t, b(20), b(22)), 24);
+        const draw = easeInOut((t - b(20) - 0.1) / 0.7);
+        el["chart-line"].style.strokeDashoffset = `${chartLen * (1 - draw)}`;
+        el["chart-area"].style.opacity = clamp01((t - b(20) - 0.5) / 0.3).toFixed(3);
+        const hov = clamp01(track([[0, 0], [b(21), 1]], t, 3.2, 0.7));
+        const hp = chartPts[HOVER];
+        el["chart-guide"].setAttribute("x1", hp[0]); el["chart-guide"].setAttribute("x2", hp[0]);
+        el["chart-guide"].setAttribute("y1", hp[1]); el["chart-guide"].setAttribute("y2", 380);
+        el["chart-guide"].style.opacity = clamp01(hov).toFixed(3);
+        el["chart-dot"].setAttribute("cx", hp[0]); el["chart-dot"].setAttribute("cy", hp[1]);
+        el["chart-dot"].setAttribute("r", (12 * Math.max(0, hov)).toFixed(2));
+        el.tooltip.style.opacity = clamp01(hov).toFixed(3);
+        el.tooltip.style.transform = `translate(calc(${-340 + hp[0]}px - 50%), ${-150 + hp[1] - 110 + (1 - hov) * 20}px) scale(${(0.9 + 0.1 * hov).toFixed(3)})`;
+
+        // ----- palette -----
+        show(el["L-palette"], vis(t, b(22), b(25)));
+        el["L-palette"].style.transform += ` translate(0px, ${-h / 2}px)`;
+        let qtxt = "";
+        for (const [s, txt] of TYPE) if (t >= s) qtxt = txt;
+        el["pal-query"].textContent = qtxt || "";
+        el["pal-query"].style.color = qtxt ? "#111" : "#a5a39d";
+        if (!qtxt) el["pal-query"].textContent = "Buscar acción…";
+        const qWidth = qtxt ? measure.measureText(qtxt).width : 0;
+        el["pal-caret"].style.left = `${-240 + qWidth + 4}px`;
+        el["pal-caret"].style.opacity = (t >= 11.5 && t < b(24)) || Math.floor(t * 4) % 2 === 0 ? "1" : "0";
+        let y = 128;
+        ROWS.forEach((_, i) => {
+          const f = 1 - clamp01(spring(t - ROW_GONE[i], 3, 0.8));
+          const row = el["row" + i];
+          row.style.opacity = clamp01(f * 1.6 - 0.6).toFixed(3);
+          row.style.transform = `translate(-300px, ${(y + 14 * (1 - f)).toFixed(2)}px)`;
+          y += 72 * f;
+        });
+        const enter = clamp01(spring(t - b(24), 4, 0.8));
+        el["pal-hl"].style.top = "120px";
+        el["pal-hl"].style.background = css(mixc(hex("#efeeea"), C.acc, enter));
+        el["row1"].querySelector(".t-row").style.color = css(mixc(C.ink, C.white, enter));
+        el["row1"].firstChild.style.borderColor = css(mixc(C.ink, C.white, enter));
+
+        // ----- notification -----
+        show(el["L-notif"], vis(t, b(25), b(27)), -18);
+
+        // ----- cursor -----
+        const pa = clamp01(pressAmount(t));
+        el.cursor.style.transform = `translate(${cx}px, ${cy}px) scale(${((1 - 0.16 * pa) / cam).toFixed(4)})`;
+      }
+
+      // ---------------- timeline ----------------
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const clock = { t: 0 };
+      tl.to(clock, { t: 16, duration: 16, ease: "none", onUpdate: () => seek(tl.time()) }, 0);
+      window.__timelines["main"] = tl;
+      window.addEventListener("hf-seek", (e) => seek(e.detail.time));
+      seek(0);
+      tl.seek(0);
+      })();
+    </script>
+  </body>
+</html>
